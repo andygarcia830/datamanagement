@@ -10,9 +10,10 @@
                 },
                 callback:function(r){
                     console.log(r.message)
+                    frm.refresh();
                 }
                });
-               frm.refresh();
+               
               }
          );
 
@@ -24,9 +25,10 @@
                },
                callback:function(r){
                    console.log(r.message)
+                   frm.refresh();
                }
               });
-              frm.refresh();
+              
              }
         );
 
