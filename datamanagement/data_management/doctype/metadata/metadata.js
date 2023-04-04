@@ -10,7 +10,7 @@
                 },
                 callback:function(r){
                     console.log(r.message)
-                    frm.refresh();
+                    frm.reload_doc();
                 }
                });
                
@@ -25,7 +25,7 @@
                },
                callback:function(r){
                    console.log(r.message)
-                   frm.refresh();
+                   frm.reload_doc();
                }
               });
               
