@@ -1,111 +1,120 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:name1",
- "creation": "2023-04-03 10:14:43.889540",
+ "autoname": "format:{metadata}-MAPPING-{#####}",
+ "creation": "2023-04-04 16:05:27.839633",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "name1",
+  "metadata",
+  "target_table",
+  "transformation",
   "description",
-  "owner",
-  "steward",
   "source",
   "fields",
   "url",
   "storage_type",
   "creation_date",
   "retention_period_units",
-  "retention_period_value",
-  "json"
+  "retention_period_value"
  ],
  "fields": [
-  {
-   "fieldname": "owner",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Owner",
-   "options": "User",
-   "reqd": 1
-  },
-  {
-   "fieldname": "steward",
-   "fieldtype": "Table",
-   "label": "Stewards",
-   "options": "StewardList"
-  },
-  {
-   "fieldname": "source",
-   "fieldtype": "Table",
-   "label": "Sources",
-   "options": "MetaDataReference"
-  },
-  {
-   "fieldname": "fields",
-   "fieldtype": "Table",
-   "label": "Fields",
-   "options": "MetaDataFields"
-  },
   {
    "fieldname": "name1",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
+   "read_only": 1,
    "unique": 1
   },
   {
-   "fieldname": "json",
-   "fieldtype": "Text",
-   "label": "JSON",
-   "read_only": 1
-  },
-  {
-   "fieldname": "url",
-   "fieldtype": "Data",
-   "label": "URL"
-  },
-  {
-   "default": "S3",
-   "fieldname": "storage_type",
-   "fieldtype": "Select",
-   "label": "Storage Type",
-   "options": "RDBMS\nNOSQL\nS3\nOTHER",
+   "fieldname": "metadata",
+   "fieldtype": "Link",
+   "label": "MetaData",
+   "options": "MetaData",
    "reqd": 1
   },
   {
    "fieldname": "description",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Description"
+   "is_virtual": 1,
+   "label": "Description",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Table",
+   "is_virtual": 1,
+   "label": "Sources",
+   "options": "MetaDataReference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fields",
+   "fieldtype": "Table",
+   "is_virtual": 1,
+   "label": "Fields",
+   "options": "MetaDataFields",
+   "read_only": 1
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "storage_type",
+   "fieldtype": "Select",
+   "is_virtual": 1,
+   "label": "Storage Type",
+   "options": "RDBMS\nNOSQL\nS3\nOTHER",
+   "read_only": 1
   },
   {
    "fieldname": "creation_date",
    "fieldtype": "Date",
+   "is_virtual": 1,
    "label": "Creation Date",
-   "reqd": 1
+   "read_only": 1
   },
   {
-   "default": "YEARS",
    "fieldname": "retention_period_units",
    "fieldtype": "Select",
+   "is_virtual": 1,
    "label": "Retention Period Units",
-   "options": "DAYS\nWEEKS\nMONTHS\nYEARS"
+   "options": "DAYS\nWEEKS\nMONTHS\nYEARS",
+   "read_only": 1
   },
   {
    "fieldname": "retention_period_value",
    "fieldtype": "Int",
-   "label": "Retention Period Value"
+   "is_virtual": 1,
+   "label": "Retention Period Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transformation",
+   "fieldtype": "Text",
+   "label": "Transformation"
+  },
+  {
+   "fieldname": "target_table",
+   "fieldtype": "Data",
+   "label": "Target Table"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-04 17:57:10.282867",
+ "modified": "2023-04-04 18:22:31.084112",
  "modified_by": "Administrator",
  "module": "Data Management",
- "name": "MetaData",
- "naming_rule": "By fieldname",
+ "name": "Data Mapping",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
