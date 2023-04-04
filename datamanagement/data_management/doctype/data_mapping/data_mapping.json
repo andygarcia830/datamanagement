@@ -11,6 +11,7 @@
   "name1",
   "metadata",
   "target_table",
+  "instructions",
   "transformation",
   "description",
   "source",
@@ -106,11 +107,16 @@
    "fieldname": "target_table",
    "fieldtype": "Data",
    "label": "Target Table"
+  },
+  {
+   "fieldname": "instructions",
+   "fieldtype": "Text",
+   "label": "Instructions"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-04 18:22:31.084112",
+ "modified": "2023-04-04 22:16:58.003045",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Mapping",
