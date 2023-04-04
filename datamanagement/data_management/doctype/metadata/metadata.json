@@ -17,7 +17,8 @@
   "url",
   "storage_type",
   "creation_date",
-  "retention_period_in_days",
+  "retention_period_units",
+  "retention_period_value",
   "json"
  ],
  "fields": [
@@ -85,14 +86,20 @@
    "reqd": 1
   },
   {
-   "fieldname": "retention_period_in_days",
+   "fieldname": "retention_period_units",
+   "fieldtype": "Select",
+   "label": "Retention Period Units",
+   "options": "DAYS\nWEEKS\nMONTHS\nYEARS"
+  },
+  {
+   "fieldname": "retention_period_value",
    "fieldtype": "Int",
-   "label": "Retention Period In Days"
+   "label": "Retention Period Value"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-03 18:21:53.615885",
+ "modified": "2023-04-04 14:19:31.403779",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "MetaData",
