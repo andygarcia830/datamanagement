@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-04-03 10:35:47.108391",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "metadata"
+ ],
+ "fields": [
+  {
+   "fieldname": "metadata",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "MetaData",
+   "options": "MetaData"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-04-03 10:37:14.572742",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "MetaDataReference",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

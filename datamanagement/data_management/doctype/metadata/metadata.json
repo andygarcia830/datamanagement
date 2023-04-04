@@ -1,0 +1,118 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2023-04-03 10:14:43.889540",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "description",
+  "owner",
+  "steward",
+  "source",
+  "fields",
+  "url",
+  "storage_type",
+  "creation_date",
+  "retention_period_in_days",
+  "json"
+ ],
+ "fields": [
+  {
+   "fieldname": "owner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Owner",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "steward",
+   "fieldtype": "Table",
+   "label": "Stewards",
+   "options": "StewardList"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Table",
+   "label": "Sources",
+   "options": "MetaDataReference"
+  },
+  {
+   "fieldname": "fields",
+   "fieldtype": "Table",
+   "label": "Fields",
+   "options": "MetaDataFields"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "json",
+   "fieldtype": "Text",
+   "label": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL"
+  },
+  {
+   "fieldname": "storage_type",
+   "fieldtype": "Select",
+   "label": "Storage Type",
+   "options": "RDBMS\nNOSQL\nS3\nOTHER",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "creation_date",
+   "fieldtype": "Date",
+   "label": "Creation Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "retention_period_in_days",
+   "fieldtype": "Int",
+   "label": "Retention Period In Days"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-03 18:21:53.615885",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "MetaData",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
