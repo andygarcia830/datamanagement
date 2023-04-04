@@ -12,6 +12,7 @@
                     console.log(r.message)
                 }
                });
+               frm.refresh();
               }
          );
 
@@ -25,6 +26,7 @@
                    console.log(r.message)
                }
               });
+              frm.refresh();
              }
         );
 
