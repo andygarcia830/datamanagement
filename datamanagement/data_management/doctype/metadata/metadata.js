@@ -4,12 +4,29 @@
  frappe.ui.form.on("MetaData", {
  	refresh(frm) {
         if(!frm.is_new()){
+
+        frm.add_custom_button(
+            __('Reconstruct JSON'),function(){
+                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_source_fields', args:{
+                    'name':frm.doc.name,
+                    'source':frm.doc.source
+                },
+                callback:function(r){
+                    console.log(r.message)
+                    frm.reload_doc();
+                }
+               });
+                }
+            , __("Actions")
+        );
+   
          frm.add_custom_button(
              __('Create Data Mapping'),function(){
                 window.location.replace('/app/data-mapping/new-data-mapping-1?metadata='+frm.doc.name1)
                
               }
-         );
+              , __("Actions")
+        );
 
          frm.add_custom_button(
             __('Fetch Source Fields'),function(){
@@ -25,6 +42,7 @@
               });
               
              }
+        , __("Actions")
         );
 
             }
