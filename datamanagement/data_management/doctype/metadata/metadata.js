@@ -19,13 +19,7 @@
             , __("Actions")
         );
    
-         frm.add_custom_button(
-             __('Create Data Mapping'),function(){
-                window.location.replace('/app/data-mapping/new-data-mapping-1?metadata='+frm.doc.name1)
-               
-              }
-              , __("Actions")
-        );
+        
 
          frm.add_custom_button(
             __('Fetch Source Fields'),function(){
@@ -39,7 +33,7 @@
                     'name':frm.doc.name
                 }
                });
-                
+               frm.reload_doc();
                }
               });
               frm.reload_doc();
@@ -47,7 +41,14 @@
              }
         , __("Actions")
         );
-
+        
+        frm.add_custom_button(
+            __('Create Data Mapping'),function(){
+               window.location.replace('/app/data-mapping/new-data-mapping-1?metadata='+frm.doc.name1)
+              
+             }
+             , __("Actions")
+       );
             }
  	},
 
