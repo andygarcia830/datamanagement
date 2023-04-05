@@ -7,9 +7,8 @@
 
         frm.add_custom_button(
             __('Reconstruct JSON'),function(){
-                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_source_fields', args:{
-                    'name':frm.doc.name,
-                    'source':frm.doc.source
+                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
+                    'name':frm.doc.name
                 },
                 callback:function(r){
                     console.log(r.message)
@@ -36,10 +35,14 @@
                    'source':frm.doc.source
                },
                callback:function(r){
-                   console.log(r.message)
+                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
+                    'name':frm.doc.name
+                }
+               });
                    frm.reload_doc();
                }
               });
+              
               
              }
         , __("Actions")
