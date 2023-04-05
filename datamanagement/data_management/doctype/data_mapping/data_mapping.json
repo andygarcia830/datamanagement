@@ -69,11 +69,11 @@
    "read_only": 1
   },
   {
+   "default": "S3",
    "fieldname": "storage_type",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Storage Type",
-   "options": "RDBMS\nNOSQL\nS3\nOTHER",
    "read_only": 1
   },
   {
@@ -85,10 +85,9 @@
   },
   {
    "fieldname": "retention_period_units",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "is_virtual": 1,
    "label": "Retention Period Units",
-   "options": "DAYS\nWEEKS\nMONTHS\nYEARS",
    "read_only": 1
   },
   {
@@ -116,7 +115,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-04 22:16:58.003045",
+ "modified": "2023-04-05 15:58:51.680992",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Mapping",
