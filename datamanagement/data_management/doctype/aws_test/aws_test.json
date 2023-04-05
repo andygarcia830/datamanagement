@@ -12,13 +12,14 @@
  "fields": [
   {
    "fieldname": "test",
-   "fieldtype": "Data",
-   "label": "Test"
+   "fieldtype": "Table",
+   "label": "Test",
+   "options": "S3Buckets"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-05 17:05:11.955727",
+ "modified": "2023-04-05 17:26:24.264411",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "AWS Test",
