@@ -38,6 +38,7 @@ def create_json(name):
 		fieldDict['description']=entry.description
 		fieldDict['type']=entry.type
 		fieldDict['source']=entry.source
+		fieldDict['origin']=entry.origin
 		fieldList.append(fieldDict)
 
 
@@ -70,7 +71,7 @@ def fetch_source_fields(name,source):
 		thisName = sourceItem['metadata']
 		thisDoc = frappe.get_doc('MetaData',thisName)
 		
-		fields = frappe.get_all('MetaDataFields', filters = dict(parent=thisName),fields = 'name1,description,type,source')
+		fields = frappe.get_all('MetaDataFields', filters = dict(parent=thisName),fields = 'name1,description,type,source,origin')
 		print(f'FETCHING FIELDS {fields}')
 	
 		for item in fields:
@@ -91,9 +92,17 @@ def fetch_source_fields(name,source):
 				thisField.description=item.description
 				thisField.type=item.type
 				thisField.source=thisName
+				print(f'ITEM ORIGIN= {item.origin}')
+				if item.origin == None or len(item.origin) == 0:
+					thisField.origin = thisName
+				else:
+					thisField.origin = item.origin
 			#newFields.append(thisField)
 	#print(f'NEW FIELDS {newFields}')
 	#maindoc.fields=newFields
 	maindoc.save()
 		
-	
+@frappe.whitelist()
+def set_origin(doc):
+	fields = doc.fields
+	print(f'FIELDS={fields}')
