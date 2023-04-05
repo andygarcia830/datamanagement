@@ -39,10 +39,10 @@
                     'name':frm.doc.name
                 }
                });
-                   frm.reload_doc();
+                
                }
               });
-              
+              frm.reload_doc();
               
              }
         , __("Actions")
