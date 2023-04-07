@@ -1,0 +1,101 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"cBa53vfDF6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Data Management</span>\",\"col\":12}},{\"id\":\"7QUbP0Aabi\",\"type\":\"card\",\"data\":{\"card_name\":\"MetaData\",\"col\":4}},{\"id\":\"9UX9R-b10K\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"GrjC-f4wrd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xMYl_aqPOx\",\"type\":\"card\",\"data\":{\"card_name\":\"AWS\",\"col\":4}}]",
+ "creation": "2023-04-04 11:29:56.103883",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "customization",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Data Management",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "AWS",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "AWS Configuration",
+   "link_count": 0,
+   "link_to": "AWS Configuration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "AWS S3 Bucket Manager",
+   "link_count": 0,
+   "link_to": "AWS S3 Bucket Manager",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "MetaData",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "MetaData",
+   "link_count": 0,
+   "link_to": "MetaData",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Data Mapping",
+   "link_count": 0,
+   "link_to": "Data Mapping",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Data",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Data Folder",
+   "link_count": 0,
+   "link_to": "Data Folder",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-04-07 23:08:42.755752",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "Data Management",
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 25.0,
+ "shortcuts": [],
+ "title": "Data Management"
+}
