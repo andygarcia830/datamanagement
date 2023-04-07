@@ -11,6 +11,7 @@ frappe.ui.form.on("Data Folder", {
                },
                callback:function(r){
                    console.log(r.message)
+                   frm.doc.reload_doc()
                }
                })
         }
@@ -55,6 +56,7 @@ frappe.ui.form.on("Data Folder", {
                        },
                        callback:function(r){
                            console.log(r.message)
+                           frm.doc.reload_doc()
                        }
                        })
                     }
