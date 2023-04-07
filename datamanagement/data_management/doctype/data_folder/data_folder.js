@@ -10,8 +10,9 @@ frappe.ui.form.on("Data Folder", {
                     'name':frm.doc.name1
                },
                callback:function(r){
-                   console.log(r.message)
-                   frm.refresh()
+                   console.log(r.message);
+                   frm.refresh();
+                   frm.refresh_field('objects');
                }
                })
         }
@@ -55,8 +56,9 @@ frappe.ui.form.on("Data Folder", {
                             'subdirectory':values.subdirectory
                        },
                        callback:function(r){
-                           console.log(r.message)
-                           frm.refresh()
+                           console.log(r.message);
+                           frm.refresh();
+                           frm.refresh_field('objects');
                        }
                        })
                     }
@@ -88,7 +90,8 @@ frappe.ui.form.on("Data Folder", {
                                 'object':value
                             },
                             callback:function(r){
-                                frm.refresh()
+                                frm.refresh();
+                                frm.refresh_field('objects');
                             }
                             })
                     },
@@ -111,7 +114,8 @@ frappe.ui.form.on("Data Folder", {
                                 'object':value
                             },
                             callback:function(r){
-                                frm.refresh()
+                                frm.refresh();
+                                frm.refresh_field('objects');
                             }
                             })
                     
