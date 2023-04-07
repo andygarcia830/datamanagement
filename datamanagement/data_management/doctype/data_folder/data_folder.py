@@ -45,22 +45,24 @@ def fetch_objects(storage_type,name):
 		s3 = boto3.client('s3')
 		FolderObjects=s3.list_objects(Bucket=bucket)
 		print(f'FOLDER OBJECTS={FolderObjects}')
+		try:
+			for object in FolderObjects['Contents']:
+				#print(f'THIS OBJECT={object}')
+				thisObjectName=object['Key']
 
-		for object in FolderObjects['Contents']:
-			#print(f'THIS OBJECT={object}')
-			thisObjectName=object['Key']
-
-			if objectNames.count(thisObjectName) ==0:
-				print(f'Object {thisObjectName} NOT IN DATABASE')
-				objectEntry = maindoc.append('objects',{})
-				print(thisObjectName)
-				objectEntry.object=thisObjectName
-				objectEntry.exists=1
-			else:
-				print(f'Object {thisObjectName} IN DATABASE')
-				SQL=f'UPDATE `tabFolderObjects` t SET t.exists=1 WHERE t.object=\'{thisObjectName}\';'
-				frappe.db.sql(SQL)
-			print(object['Key'])
+				if objectNames.count(thisObjectName) ==0:
+					print(f'Object {thisObjectName} NOT IN DATABASE')
+					objectEntry = maindoc.append('objects',{})
+					print(thisObjectName)
+					objectEntry.object=thisObjectName
+					objectEntry.exists=1
+				else:
+					print(f'Object {thisObjectName} IN DATABASE')
+					SQL=f'UPDATE `tabFolderObjects` t SET t.exists=1 WHERE t.object=\'{thisObjectName}\';'
+					frappe.db.sql(SQL)
+				print(object['Key'])
+		except:
+			pass
 
 		
 		SQL='DELETE FROM `tabFolderObjects` WHERE `tabFolderObjects`.exists=0;'
@@ -110,7 +112,7 @@ def create_folder(storage_type,name,folder,object):
 def get_subfolder_names(name):
 	maindoc = frappe.get_doc('Data Folder',name)
 	objects = maindoc.objects
-	folderNames=[]
+	folderNames=['/']
 	for entry in objects:
 		thisObject=frappe.get_doc('FolderObjects',entry.name)
 		objectName=thisObject.object
