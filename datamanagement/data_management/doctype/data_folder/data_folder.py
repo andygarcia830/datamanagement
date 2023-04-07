@@ -88,6 +88,7 @@ def upload_object(storage_type,name,file,subdirectory):
 		s3 = boto3.client('s3')
 		s3.upload_file(file,bucket , key)
 	fetch_objects(storage_type,name)
+	maindoc.reload()
 
 @frappe.whitelist()
 def create_folder(storage_type,name,folder,object):
@@ -106,6 +107,8 @@ def create_folder(storage_type,name,folder,object):
 		s3 = boto3.client('s3')
 		s3.put_object(Bucket=folder,Key=object)
 	fetch_objects(storage_type,name)
+	maindoc.reload()
+
 
 
 @frappe.whitelist()
@@ -142,7 +145,7 @@ def get_subfolder_names(name):
 
 @frappe.whitelist()
 def delete_object(storage_type,name,folder,object):
-	
+	maindoc = frappe.get_doc('Data Folder',name)
 	if storage_type=='AWS S3':
 		datamanagement.data_management.doctype.aws_configuration.aws_configuration.import_aws_credentials()
 		s3 = boto3.client('s3')
@@ -153,4 +156,5 @@ def delete_object(storage_type,name,folder,object):
 		Key=object
 		)
 		fetch_objects(storage_type,name)
+		maindoc.reload()
 		frappe.msgprint(str(response))
