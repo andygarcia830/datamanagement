@@ -11,7 +11,7 @@ frappe.ui.form.on("Data Folder", {
                },
                callback:function(r){
                    console.log(r.message)
-                   frm.doc.reload_doc()
+                   frm.doc.refresh()
                }
                })
         }
@@ -56,7 +56,7 @@ frappe.ui.form.on("Data Folder", {
                        },
                        callback:function(r){
                            console.log(r.message)
-                           frm.doc.reload_doc()
+                           frm.doc.refresh()
                        }
                        })
                     }
@@ -88,7 +88,7 @@ frappe.ui.form.on("Data Folder", {
                                 'object':value
                             },
                             callback:function(r){
-                                frm.doc.reload_doc()
+                                frm.doc.refresh()
                             }
                             })
                     },
@@ -111,7 +111,7 @@ frappe.ui.form.on("Data Folder", {
                                 'object':value
                             },
                             callback:function(r){
-                                frm.doc.reload_doc()
+                                frm.doc.refresh()
                             }
                             })
                     

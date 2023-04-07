@@ -32,7 +32,7 @@ frappe.ui.form.on("AWS S3 Bucket Manager", {
         },
         callback:function(r){
             console.log(r.message)
-            frm.doc.reload_doc()
+            frm.doc.refresh()
         }
        })
     }
@@ -45,7 +45,7 @@ frappe.ui.form.on("AWS S3 Bucket Manager", {
                     'bucket':value
                 },
                 callback:function(r){
-                    frm.doc.reload_doc()
+                    frm.doc.refresh()
                 }
                 })
                 );
@@ -65,7 +65,7 @@ frappe.ui.form.on("AWS S3 Bucket Manager", {
                             'bucket':value
                         },
                         callback:function(r){
-                            frm.doc.reload_doc()
+                            frm.doc.refresh()
                         }
                         })
                 },
