@@ -190,3 +190,10 @@ app_license = "MIT"
 # auth_hooks = [
 #	"datamanagement.auth.validate"
 # ]
+
+fixtures = [
+    # export only those records that match the filters from the Role table
+    {"dt": "Role", "filters": [["role_name", "like", "Data Management%"]]},
+    {"dt": "Custom DocPerm","filters": [["role","like","Data Management%"]]},
+	{"dt": "Module Profile", "filters": [["module_profile_name", "like", "Data Management%"]]},
+]
