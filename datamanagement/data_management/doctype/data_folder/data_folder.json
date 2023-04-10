@@ -9,9 +9,16 @@
  "engine": "InnoDB",
  "field_order": [
   "name1",
+  "access_section",
+  "data_owner",
+  "column_break_fdas",
+  "data_stewards",
+  "details_section",
   "metadata",
+  "column_break_wq7o",
   "storage_type",
   "folder",
+  "content_section",
   "objects"
  ],
  "fields": [
@@ -51,11 +58,51 @@
    "fieldtype": "Select",
    "label": "Folder",
    "set_only_once": 1
+  },
+  {
+   "fieldname": "data_owner",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Data Owner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_stewards",
+   "fieldtype": "Table",
+   "is_virtual": 1,
+   "label": "Data Stewards",
+   "options": "StewardList",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "access_section",
+   "fieldtype": "Section Break",
+   "label": "Access"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "column_break_fdas",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wq7o",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-07 22:44:02.460454",
+ "modified": "2023-04-08 16:15:46.886500",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Folder",

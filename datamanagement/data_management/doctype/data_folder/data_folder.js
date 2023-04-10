@@ -3,6 +3,20 @@
 
 frappe.ui.form.on("Data Folder", {
     refresh(frm){
+
+        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_folder_names', args:{
+            'storage_type':frm.doc.storage_type
+         },
+         callback:function(r){
+             console.log(r.message)
+             frm.set_df_property('folder', 'options', r.message);
+             frm.refresh_field('folder');
+         }
+        });
+
+        var has_access=0
+
+ 
         frm.add_custom_button(
             __('Reload Objects'),function(){
                 frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_objects', args:{
@@ -18,6 +32,30 @@ frappe.ui.form.on("Data Folder", {
         }
         ,__('Actions')
         );
+        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_access', args:{
+            'metadata':frm.doc.metadata
+         },
+         callback:function(r){
+             console.log(r.message)
+             frm.set_value('data_owner', r.message.data_owner);
+             frm.set_value('data_stewards', r.message.data_stewards);
+             //console.log("OWNER="+r.message.data_owner+" USER=" + frappe.session.user);
+             var gave_access=0;
+             if(r.message.data_owner == frappe.session.user){
+                show_access_buttons()
+                }
+             for (var i=0; i < r.message.data_stewards.length && gave_access==0; i ++){
+                if (r.message.data_stewards[i].steward==frappe.session.user){
+                    show_access_buttons();
+                    gave_access=1;
+
+                }
+             }
+         
+            }
+        });
+        
+        function show_access_buttons() {
         frm.add_custom_button(
             __('Upload Object'),function(){
                 frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.get_subfolder_names', args:{
@@ -123,16 +161,8 @@ frappe.ui.form.on("Data Folder", {
             }
             ,__('Actions')
         );
-    
-        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_folder_names', args:{
-            'storage_type':frm.doc.storage_type
-         },
-         callback:function(r){
-             console.log(r.message)
-             frm.set_df_property('folder', 'options', r.message);
-             frm.refresh_field('folder');
-         }
-        });
+        }
+
 
     },
 	on_load(frm) {

@@ -89,6 +89,9 @@ def upload_object(storage_type,name,file,subdirectory):
 		s3.upload_file(file,bucket , key)
 	fetch_objects(storage_type,name)
 	maindoc.reload()
+	# remove temporary file
+	if os.path.isfile(file):
+		os.remove(file)
 
 @frappe.whitelist()
 def create_folder(storage_type,name,folder,object):
@@ -140,6 +143,15 @@ def get_subfolder_names(name):
 			folderNames.append(objectName)
 	folderNames.sort()
 	return folderNames 
+
+
+@frappe.whitelist()
+def fetch_access(metadata):
+	maindoc = frappe.get_doc('MetaData',metadata)
+	result = {}
+	result['data_owner'] = maindoc.owner
+	result['data_stewards'] = maindoc.steward
+	return result 
 
 
 
