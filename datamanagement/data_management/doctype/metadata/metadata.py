@@ -10,21 +10,21 @@ class MetaData(Document):
 
 @frappe.whitelist()
 def create_json(name):
-	print('CREATE JSON CALLED')
+	#print('CREATE JSON CALLED')
 	maindoc = frappe.get_doc('MetaData',name)
-	print(f'GOT DOC {maindoc}')
+	#print(f'GOT DOC {maindoc}')
 	# get Steward List
 	stewards = frappe.get_all('StewardList', filters = dict(parent=name),fields = 'steward')
 	stewardList=[]
 	for entry in stewards:
-		print(f'GOT STEWARD {entry.steward}')
+		#print(f'GOT STEWARD {entry.steward}')
 		stewardList.append(entry.steward)
 
 	# get sources
 	sources = frappe.get_all('MetaDataReference', filters = dict(parent=name),fields = 'metadata')
 	sourceList=[]
 	for entry in sources:
-		print(f'GOT SOURCE {entry.metadata}')
+		#print(f'GOT SOURCE {entry.metadata}')
 		sourceList.append(entry.metadata)
 
 	# get fields
@@ -33,7 +33,7 @@ def create_json(name):
 
 	for entry in fields:
 		fieldDict={}
-		print(f'GOT FIELD {entry.name1}')
+		#print(f'GOT FIELD {entry.name1}')
 		fieldDict['name1']=entry.name1
 		fieldDict['description']=entry.description
 		fieldDict['type']=entry.type
@@ -54,7 +54,7 @@ def create_json(name):
 	jsonList.append({'storage_type':maindoc.storage_type})
 	jsonList.append({'retention_period_units':maindoc.retention_period_units})
 	jsonList.append({'retention_period_value':maindoc.retention_period_value})
-	print(jsonList)
+	#print(jsonList)
 	maindoc.set('json',str(jsonList))
 	maindoc.save()
 
@@ -86,13 +86,13 @@ def fetch_source_fields(name,source):
 			
 
 			if match == 0:
-				print(f'FETCHING FIELD {item}')
+				#print(f'FETCHING FIELD {item}')
 				thisField = maindoc.append('fields',{})
 				thisField.name1=item.name1
 				thisField.description=item.description
 				thisField.type=item.type
 				thisField.source=thisName
-				print(f'ITEM ORIGIN= {item.origin}')
+				#print(f'ITEM ORIGIN= {item.origin}')
 				if item.origin == None or len(item.origin) == 0:
 					thisField.origin = thisName
 				else:
@@ -104,5 +104,18 @@ def fetch_source_fields(name,source):
 		
 @frappe.whitelist()
 def set_origin(doc):
-	fields = doc.fields
+	maindoc = frappe.get_doc('MetaData',doc)
+	print('SET ORIGIN CALLED')
+	fields = maindoc.fields
+	for item in fields:
+		print(f'THIS FIELD={item.origin}')
+
+		if item.origin == None:
+			item.origin=maindoc.name
+			print(f'SETTING ORIGIN TO {maindoc.name}')
+		
+		if item.source == None:
+			item.source=maindoc.name
+	maindoc.save()
+
 	print(f'FIELDS={fields}')

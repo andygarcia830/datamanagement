@@ -13,6 +13,7 @@
   "target_table",
   "instructions",
   "transformation",
+  "field_transformations",
   "description",
   "source",
   "fields",
@@ -111,11 +112,17 @@
    "fieldname": "instructions",
    "fieldtype": "Text",
    "label": "Instructions"
+  },
+  {
+   "fieldname": "field_transformations",
+   "fieldtype": "Table",
+   "label": "Field Transformations",
+   "options": "FieldTransformation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-05 15:58:51.680992",
+ "modified": "2023-04-11 15:44:56.483306",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Mapping",

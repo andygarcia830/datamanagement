@@ -10,6 +10,8 @@
  "field_order": [
   "name1",
   "description",
+  "type",
+  "category",
   "owner",
   "steward",
   "source",
@@ -98,11 +100,28 @@
    "fieldname": "retention_period_value",
    "fieldtype": "Int",
    "label": "Retention Period Value"
+  },
+  {
+   "default": "Raw",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Raw\nTransformed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Category"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-05 14:14:26.652069",
+ "modified": "2023-04-11 15:29:14.976524",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "MetaData",
