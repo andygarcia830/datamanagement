@@ -72,8 +72,7 @@ frappe.ui.form.on("Data Folder", {
                },
                callback:function(r){
                    console.log(r.message);
-                   frm.refresh();
-                   frm.refresh_field('objects');
+                   frm.reload_doc();
                }
                })
         }
@@ -145,8 +144,7 @@ frappe.ui.form.on("Data Folder", {
                        },
                        callback:function(r){
                            console.log(r.message);
-                           frm.refresh();
-                           frm.refresh_field('objects');
+                           frm.reload_doc();
                        }
                        })
                     }
@@ -176,8 +174,7 @@ frappe.ui.form.on("Data Folder", {
                                 'object':value
                             },
                             callback:function(r){
-                                frm.refresh();
-                                frm.refresh_field('objects');
+                                frm.reload_doc();
                             }
                             })
                     },
@@ -200,8 +197,7 @@ frappe.ui.form.on("Data Folder", {
                                 'object':value
                             },
                             callback:function(r){
-                                frm.refresh();
-                                frm.refresh_field('objects');
+                                frm.reload_doc();
                             }
                             })
                     
@@ -231,6 +227,7 @@ frappe.ui.form.on("Data Folder", {
        },
        callback:function(r){
            console.log(r.message)
+           frm.refresh_field('objects');
        }
        })
 
@@ -254,6 +251,7 @@ frappe.ui.form.on("Data Folder", {
        },
        callback:function(r){
            console.log(r.message)
+           frm.refresh_field('objects');
        }
        })
 
