@@ -21,6 +21,9 @@ frappe.ui.form.on("Data Folder", {
     },
 
     refresh(frm){
+        if(frappe.session.user != "Administrator"){
+            frm.disable_save();
+        }
 
         
 
@@ -90,6 +93,7 @@ frappe.ui.form.on("Data Folder", {
                 //console.log("OWNER="+r.message.data_owner+" USER=" + frappe.session.user);
                 var gave_access=0;
                 if(r.message.data_owner == frappe.session.user){
+                    frm.enable_save();
                     show_access_buttons()
                     }
                 for (var i=0; i < r.message.data_stewards.length && gave_access==0; i ++){
