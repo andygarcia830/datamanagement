@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_events_in_timeline": 1,
  "allow_rename": 1,
  "autoname": "format:{metadata}-MAPPING-{#####}",
  "creation": "2023-04-04 16:05:27.839633",
@@ -120,9 +121,10 @@
    "options": "FieldTransformation"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-14 00:12:45.585448",
+ "modified": "2023-04-14 01:24:22.021424",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Mapping",

@@ -119,9 +119,10 @@
    "label": "Category"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-11 15:29:14.976524",
+ "modified": "2023-04-14 01:25:57.839787",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "MetaData",

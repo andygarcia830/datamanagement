@@ -106,9 +106,10 @@
    "set_only_once": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-13 20:09:52.653325",
+ "modified": "2023-04-14 01:22:47.428592",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Folder",

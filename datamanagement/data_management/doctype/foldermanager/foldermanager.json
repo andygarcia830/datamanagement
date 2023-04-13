@@ -32,10 +32,11 @@
    "read_only": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-13 19:13:51.175886",
+ "modified": "2023-04-14 01:25:01.222228",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "FolderManager",

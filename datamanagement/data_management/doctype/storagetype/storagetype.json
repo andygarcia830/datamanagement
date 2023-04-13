@@ -20,9 +20,10 @@
    "unique": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-13 18:35:49.549058",
+ "modified": "2023-04-14 01:25:40.876500",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "StorageType",
