@@ -1,26 +1,19 @@
+# Copyright (c) 2023, Andy Garcia and contributors
+# For license information, please see license.txt
+
 import frappe,boto3
 import datamanagement.data_management.doctype.aws_configuration.aws_configuration
+from frappe.model.document import Document
 
-@frappe.whitelist()
-def fetch_resource_names(storage_type):
-
-	if storage_type=='AWS S3':
-		datamanagement.data_management.doctype.aws_configuration.aws_configuration.import_aws_credentials()
-		# Let's use Amazon S3
-		s3 = boto3.resource('s3')
-		buckets = []
-		
-		for bucket in s3.buckets.all():
-			buckets.append(bucket.name)
-		print(buckets)	
-		return buckets
-
+class FolderManager(Document):
+	pass
 
 
 
 @frappe.whitelist()
 def fetch_folder_names(storage_type,resource):
 	print('FETCH FOLDER NAMES')
+	folders=frappe.new_doc('Folder Objects')
 	if storage_type=='AWS S3':
 		datamanagement.data_management.doctype.aws_configuration.aws_configuration.import_aws_credentials()
 		# Let's use Amazon S3
@@ -36,3 +29,19 @@ def fetch_folder_names(storage_type,resource):
 		return folders
 
 
+@frappe.whitelist()
+def create_folder(storage_type,resource,object):
+	
+	if object[0] =='/':
+		object=object[1:]
+
+	if object[-1] != '/':
+		object=object+'/'
+
+	
+	if storage_type=='AWS S3':
+		datamanagement.data_management.doctype.aws_configuration.aws_configuration.import_aws_credentials()
+		# Let's use Amazon S3
+		s3 = boto3.client('s3')
+		s3.put_object(Bucket=resource,Key=object)
+	

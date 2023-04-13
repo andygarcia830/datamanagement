@@ -3,29 +3,46 @@
  "allow_rename": 1,
  "creation": "2023-04-11 15:43:19.716572",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "md_field",
-  "transformation"
+  "transformation",
+  "last_update_date"
  ],
  "fields": [
   {
+   "columns": 6,
    "fieldname": "transformation",
    "fieldtype": "Text",
    "in_list_view": 1,
-   "label": "Transformation"
+   "label": "Transformation",
+   "reqd": 1,
+   "width": "100"
   },
   {
+   "columns": 2,
    "fieldname": "md_field",
    "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Field"
+   "label": "Field",
+   "no_copy": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "last_update_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Last Update Date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-04-11 20:05:21.974053",
+ "modified": "2023-04-14 00:30:25.537940",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "FieldTransformation",

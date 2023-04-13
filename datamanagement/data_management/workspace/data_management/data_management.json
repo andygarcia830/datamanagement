@@ -71,7 +71,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Data",
-   "link_count": 1,
+   "link_count": 2,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -84,9 +84,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Folder Manager",
+   "link_count": 0,
+   "link_to": "FolderManager",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-04-07 23:08:42.755752",
+ "modified": "2023-04-13 18:40:55.513463",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Management",

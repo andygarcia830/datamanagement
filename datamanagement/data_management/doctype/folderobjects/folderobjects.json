@@ -15,7 +15,7 @@
    "fieldname": "object",
    "fieldtype": "Text",
    "in_list_view": 1,
-   "label": "Object",
+   "label": "File",
    "read_only": 1
   },
   {
@@ -30,7 +30,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-04-07 22:31:58.177446",
+ "modified": "2023-04-13 18:29:04.199028",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "FolderObjects",

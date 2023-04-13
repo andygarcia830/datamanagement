@@ -9,15 +9,16 @@
  "engine": "InnoDB",
  "field_order": [
   "name1",
-  "access_section",
-  "data_owner",
-  "column_break_fdas",
-  "data_stewards",
   "details_section",
   "metadata",
   "column_break_wq7o",
   "storage_type",
+  "resource",
   "folder",
+  "access_section",
+  "data_owner",
+  "column_break_fdas",
+  "data_stewards",
   "content_section",
   "objects"
  ],
@@ -47,9 +48,9 @@
   {
    "default": "AWS S3",
    "fieldname": "storage_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Storage Type",
-   "options": "AWS S3",
+   "options": "StorageType",
    "reqd": 1,
    "set_only_once": 1
   },
@@ -81,7 +82,6 @@
    "label": "Access"
   },
   {
-   "collapsible": 1,
    "fieldname": "details_section",
    "fieldtype": "Section Break",
    "label": "Details"
@@ -98,11 +98,17 @@
   {
    "fieldname": "column_break_wq7o",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "resource",
+   "fieldtype": "Select",
+   "label": "Resource",
+   "set_only_once": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-08 16:15:46.886500",
+ "modified": "2023-04-13 20:09:52.653325",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Folder",

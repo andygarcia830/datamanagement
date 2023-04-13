@@ -2,17 +2,64 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Data Folder", {
+
+   
+
+    resource(frm){
+        frappe.call({method:'datamanagement.data_management.services.services.fetch_folder_names', args:{
+            'storage_type':frm.doc.storage_type,
+            'resource':frm.doc.resource
+         },
+         callback:function(r){
+             console.log(r.message)
+            frm.set_df_property('folder', 'options', r.message);
+            frm.refresh_field('folder');
+         }
+        });
+
+
+    },
+
     refresh(frm){
 
-        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_folder_names', args:{
+        
+
+        frappe.call({method:'datamanagement.data_management.services.services.fetch_resource_names', args:{
             'storage_type':frm.doc.storage_type
          },
          callback:function(r){
              console.log(r.message)
-             frm.set_df_property('folder', 'options', r.message);
-             frm.refresh_field('folder');
+             frm.set_df_property('resource', 'options', r.message);
+             frm.refresh_field('resource');
          }
         });
+
+        if (frm.doc.resource != null){
+
+            frappe.call({method:'datamanagement.data_management.services.services.fetch_folder_names', args:{
+                'storage_type':frm.doc.storage_type,
+                'resource':frm.doc.resource
+            },
+            callback:function(r){
+                console.log(r.message)
+                frm.set_df_property('folder', 'options', r.message);
+                frm.refresh_field('folder');
+            }
+            });
+
+        }
+
+        if (frm.doc.name1 != null){
+            frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.get_subfolder_names', args:{
+                'name':frm.doc.name1
+            },
+            callback:function(r){
+                console.log(r.message)
+                frm.set_df_property('resource', 'options', r.message);
+                frm.refresh_field('resource');
+            }
+            });
+        }
 
         var has_access=0
 
@@ -32,28 +79,31 @@ frappe.ui.form.on("Data Folder", {
         }
         ,__('Actions')
         );
-        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_access', args:{
-            'metadata':frm.doc.metadata
-         },
-         callback:function(r){
-             console.log(r.message)
-             frm.set_value('data_owner', r.message.data_owner);
-             frm.set_value('data_stewards', r.message.data_stewards);
-             //console.log("OWNER="+r.message.data_owner+" USER=" + frappe.session.user);
-             var gave_access=0;
-             if(r.message.data_owner == frappe.session.user){
-                show_access_buttons()
-                }
-             for (var i=0; i < r.message.data_stewards.length && gave_access==0; i ++){
-                if (r.message.data_stewards[i].steward==frappe.session.user){
-                    show_access_buttons();
-                    gave_access=1;
+        
+        if(frm.doc.metadata != null) {
+            frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_access', args:{
+                'metadata':frm.doc.metadata
+            },
+            callback:function(r){
+                console.log(r.message)
+                frm.set_value('data_owner', r.message.data_owner);
+                frm.set_value('data_stewards', r.message.data_stewards);
+                //console.log("OWNER="+r.message.data_owner+" USER=" + frappe.session.user);
+                var gave_access=0;
+                if(r.message.data_owner == frappe.session.user){
+                    show_access_buttons()
+                    }
+                for (var i=0; i < r.message.data_stewards.length && gave_access==0; i ++){
+                    if (r.message.data_stewards[i].steward==frappe.session.user){
+                        show_access_buttons();
+                        gave_access=1;
 
+                    }
                 }
-             }
-         
-            }
-        });
+            
+                }
+            });
+        }
         
         function show_access_buttons() {
         frm.add_custom_button(
@@ -122,9 +172,7 @@ frappe.ui.form.on("Data Folder", {
                     // YES
                     ()=>{
                         frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.delete_object', args:{
-                                'storage_type':frm.doc.storage_type,
                                 'name':frm.doc.name1,
-                                'folder':frm.doc.folder,
                                 'object':value
                             },
                             callback:function(r){
@@ -148,7 +196,7 @@ frappe.ui.form.on("Data Folder", {
                     frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.create_folder', args:{
                                 'storage_type':frm.doc.storage_type,
                                 'name':frm.doc.name1,
-                                'folder':frm.doc.folder,
+                                'resource':frm.doc.resource,
                                 'object':value
                             },
                             callback:function(r){
@@ -167,13 +215,13 @@ frappe.ui.form.on("Data Folder", {
     },
 	on_load(frm) {
         //frm.disable_save();
-        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_folder_names', args:{
+        frappe.call({method:'datamanagement.data_management.services.services.fetch_resource_names', args:{
            'storage_type':frm.doc.storage_type
         },
         callback:function(r){
             console.log(r.message)
-            frm.set_df_property('folder', 'options', r.message);
-            frm.refresh_field('folder');
+            frm.set_df_property('resource', 'options', r.message);
+            frm.refresh_field('resource');
         }
        });
 
@@ -190,13 +238,13 @@ frappe.ui.form.on("Data Folder", {
 
     after_save(frm) {
         //frm.disable_save();
-        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_folder_names', args:{
+        frappe.call({method:'datamanagement.data_management.services.services.fetch_resource_names', args:{
            'storage_type':frm.doc.storage_type
         },
         callback:function(r){
             console.log(r.message)
-            frm.set_df_property('folder', 'options', r.message);
-            frm.refresh_field('folder');
+            frm.set_df_property('resource', 'options', r.message);
+            frm.refresh_field('resource');
         }
        });
 

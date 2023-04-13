@@ -196,4 +196,5 @@ fixtures = [
     {"dt": "Role", "filters": [["role_name", "like", "Data Management%"]]},
     {"dt": "Custom DocPerm","filters": [["role","like","Data Management%"]]},
 	{"dt": "Module Profile", "filters": [["module_profile_name", "like", "Data Management%"]]},
+    {"dt": "StorageType"},
 ]
