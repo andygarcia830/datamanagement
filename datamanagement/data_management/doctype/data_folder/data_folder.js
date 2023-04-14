@@ -92,7 +92,7 @@ frappe.ui.form.on("Data Folder", {
                 frm.set_value('data_stewards', r.message.data_stewards);
                 //console.log("OWNER="+r.message.data_owner+" USER=" + frappe.session.user);
                 var gave_access=0;
-                if(r.message.data_owner == frappe.session.user){
+                if(r.message.data_owner == frappe.session.user || frappe.session.user == 'Administrator'){
                     frm.enable_save();
                     show_access_buttons()
                     }
