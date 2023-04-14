@@ -193,8 +193,8 @@ app_license = "MIT"
 
 
 website_context = {
-    "favicon": "/app/datamanagement/public/images/x_logo_square.svg",
-    "splash_image": "/app/datamanagement/public/images/x_logo_square.svg"
+    "favicon": "/assets/datamanagement/images/X_logo_square.svg",
+    "splash_image": "/assets/datamanagement/images/X_logo_square.svg"
     }
 
 fixtures = [
