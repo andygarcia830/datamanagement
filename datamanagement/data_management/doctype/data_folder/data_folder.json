@@ -36,6 +36,7 @@
    "fieldtype": "Link",
    "label": "MetaData",
    "options": "MetaData",
+   "reqd": 1,
    "set_only_once": 1
   },
   {
@@ -58,6 +59,7 @@
    "fieldname": "folder",
    "fieldtype": "Select",
    "label": "Folder",
+   "reqd": 1,
    "set_only_once": 1
   },
   {
@@ -103,13 +105,14 @@
    "fieldname": "resource",
    "fieldtype": "Select",
    "label": "Resource",
+   "reqd": 1,
    "set_only_once": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-14 10:08:03.111074",
+ "modified": "2023-04-14 22:13:29.006930",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Folder",

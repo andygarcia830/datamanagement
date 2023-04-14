@@ -52,9 +52,63 @@ frappe.ui.form.on("FolderManager", {
         );
         
 
+        // frm.add_custom_button(
+        //     __('Delete Empty Folder'),function(){
+        //         frappe.call({method:'datamanagement.data_management.services.services.fetch_empty_folder_names', args:{
+        //             'storage_type':frm.doc.storage_type,
+        //             'resource':frm.doc.resource
+        //        },
+        //        callback:function(r){
+        //            console.log(r.message)
+        //            let d = new frappe.ui.Dialog({
+        //             title: 'Choose Empty Folder to Delete:',
+        //             fields: [
+        //                 {
+        //                     label: 'Folder',
+        //                     fieldname: 'folder',
+        //                     fieldtype: 'Select',
+        //                     options: r.message,
+        //                     default: ''
+
+
+        //                 },
+                        
+        //             ],
+        //             primary_action_label: 'Delete',
+        //             primary_action(values) {
+        //                 console.log(values);
+        //                 d.hide();
+        //                 frappe.call({method:'datamanagement.data_management.services.services.delete_empty_folder', args:{
+        //                     'storage_type':frm.doc.storage_type,
+        //                     'resource':frm.doc.resource,
+        //                     'folder':values.folder
+        //                },
+        //                callback:function(r){
+        //                    console.log(r.message);
+        //                    }
+        //                })
+        //             }
+        //         });
+                
+        //         d.show();
+               
+               
+               
+        //         }
+        //        })
+
+                
+               
+            
+        //     }
+        //     ,__('Actions')
+        // );
+
 
     },
 
+
+    
 	
     storage_type(frm) {
         frm.disable_save();
