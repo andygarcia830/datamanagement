@@ -191,10 +191,17 @@ app_license = "MIT"
 #	"datamanagement.auth.validate"
 # ]
 
+
+website_context = {
+    "favicon": "/app/datamanagement/public/images/x_logo_square.svg",
+    "splash_image": "/app/datamanagement/public/images/x_logo_square.svg"
+    }
+
 fixtures = [
     # export only those records that match the filters from the Role table
     {"dt": "Role", "filters": [["role_name", "like", "Data Management%"]]},
     {"dt": "Custom DocPerm","filters": [["role","like","Data Management%"]]},
 	{"dt": "Module Profile", "filters": [["module_profile_name", "like", "Data Management%"]]},
-    {"dt": "StorageType"},
+
+
 ]
