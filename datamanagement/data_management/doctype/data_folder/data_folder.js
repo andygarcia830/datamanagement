@@ -21,7 +21,7 @@ frappe.ui.form.on("Data Folder", {
     },
 
     refresh(frm){
-        if(frappe.session.user != "Administrator" && frm.doc.metadata != ''){
+        if(frappe.session.user != "Administrator" && frm.doc.metadata != null){
             frm.disable_save();
         }
 
