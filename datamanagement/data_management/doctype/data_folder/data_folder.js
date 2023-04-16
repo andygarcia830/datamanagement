@@ -210,7 +210,12 @@ frappe.ui.form.on("Data Folder", {
             ,__('Actions')
         );
         }
-
+        frm.add_custom_button(
+            __('Open Airflow'),function(){
+                window.open("http://localhost:8080","_blank","menubar=no,location=no,resizable=no,scrollbars=no,status=yes,width=640,height=480");
+            }
+            ,__('Actions')
+        );
 
     },
 	on_load(frm) {

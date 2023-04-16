@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"cBa53vfDF6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Data Management</span>\",\"col\":12}},{\"id\":\"7QUbP0Aabi\",\"type\":\"card\",\"data\":{\"card_name\":\"MetaData\",\"col\":4}},{\"id\":\"9UX9R-b10K\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"GrjC-f4wrd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xMYl_aqPOx\",\"type\":\"card\",\"data\":{\"card_name\":\"AWS\",\"col\":4}}]",
+ "content": "[{\"id\":\"cBa53vfDF6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Data Management</span>\",\"col\":12}},{\"id\":\"7QUbP0Aabi\",\"type\":\"card\",\"data\":{\"card_name\":\"MetaData\",\"col\":4}},{\"id\":\"9UX9R-b10K\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"GrjC-f4wrd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xMYl_aqPOx\",\"type\":\"card\",\"data\":{\"card_name\":\"AWS\",\"col\":4}},{\"id\":\"XGtQofC1tB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Airflow\",\"col\":3}}]",
  "creation": "2023-04-04 11:29:56.103883",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -96,7 +96,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-04-13 18:40:55.513463",
+ "modified": "2023-04-16 20:55:38.754757",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Management",
@@ -106,6 +106,14 @@
  "quick_lists": [],
  "roles": [],
  "sequence_id": 25.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "View Airflow",
+   "link_to": "airflow",
+   "type": "Page"
+  }
+ ],
  "title": "Data Management"
 }

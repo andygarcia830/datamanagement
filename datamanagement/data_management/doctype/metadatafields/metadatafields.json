@@ -30,7 +30,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "INT\nFLOAT\nTEXT\nBOOLEAN\nVARCHAR"
+   "options": "INT\nFLOAT\nTEXT\nBOOLEAN\nVARCHAR\nDATE"
   },
   {
    "fieldname": "source",
@@ -50,7 +50,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-04-05 13:55:27.326194",
+ "modified": "2023-04-16 20:22:44.855045",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "MetaDataFields",

@@ -80,3 +80,10 @@ def delete_empty_folder(storage_type,resource,folder):
 		)
 		frappe.msgprint(f"Deleted Folder {folder} {response}")
 		return response
+	
+
+
+@frappe.whitelist()
+def get_airflow_url():
+	maindoc=frappe.get_doc('DeveloperPortalSettings')
+	return maindoc.airflow_url
