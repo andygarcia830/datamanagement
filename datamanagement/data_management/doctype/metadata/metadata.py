@@ -114,7 +114,7 @@ def set_origin(doc):
 			item.origin=maindoc.name
 			print(f'SETTING ORIGIN TO {maindoc.name}')
 		
-		if item.source == None:
+		if item.source == None or item.source=='':
 			item.source=maindoc.name
 	maindoc.save()
 
