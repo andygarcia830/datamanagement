@@ -110,7 +110,7 @@ def set_origin(doc):
 	for item in fields:
 		print(f'THIS FIELD={item.origin}')
 
-		if item.origin == None:
+		if item.origin == None or item.origin=='':
 			item.origin=maindoc.name
 			print(f'SETTING ORIGIN TO {maindoc.name}')
 		
