@@ -53,10 +53,10 @@
  	},
 
 
-    before_save(frm){
+    // before_save(frm){
        
     
-    },
+    // },
 
     after_save(frm){
 
@@ -75,6 +75,7 @@
         },
         callback:function(r){
             console.log(r.message)
+            frm.reload_doc()
             
         }
     });
