@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{type}-{name1}",
+ "creation": "2023-04-18 12:16:16.950811",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "type",
+  "method",
+  "client_namespace",
+  "host",
+  "port",
+  "database_name",
+  "schema_name",
+  "db_username",
+  "db_password",
+  "tables",
+  "process_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "RDBMS"
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "label": "Method",
+   "options": "direct_access\ndb_dump\ncsv"
+  },
+  {
+   "fieldname": "host",
+   "fieldtype": "Data",
+   "label": "Host",
+   "reqd": 1
+  },
+  {
+   "default": "5432",
+   "fieldname": "port",
+   "fieldtype": "Int",
+   "label": "Port",
+   "reqd": 1
+  },
+  {
+   "fieldname": "database_name",
+   "fieldtype": "Data",
+   "label": "Database Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "schema_name",
+   "fieldtype": "Data",
+   "label": "Schema Name"
+  },
+  {
+   "fieldname": "db_username",
+   "fieldtype": "Data",
+   "label": "DB Username"
+  },
+  {
+   "fieldname": "db_password",
+   "fieldtype": "Data",
+   "label": "DB Password"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "tables",
+   "fieldtype": "Table",
+   "label": "Tables",
+   "options": "DatabaseTable"
+  },
+  {
+   "fieldname": "client_namespace",
+   "fieldtype": "Data",
+   "label": "Client Namespace",
+   "reqd": 1
+  },
+  {
+   "fieldname": "process_date",
+   "fieldtype": "Date",
+   "label": "Process Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-18 13:14:42.426681",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "DataSource",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

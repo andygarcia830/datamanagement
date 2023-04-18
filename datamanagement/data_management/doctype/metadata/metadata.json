@@ -18,6 +18,7 @@
   "fields",
   "url",
   "storage_type",
+  "datasource",
   "creation_date",
   "retention_period_units",
   "retention_period_value",
@@ -72,6 +73,7 @@
    "default": "S3",
    "fieldname": "storage_type",
    "fieldtype": "Select",
+   "hidden": 1,
    "label": "Storage Type",
    "options": "RDBMS\nNOSQL\nS3\nOTHER",
    "reqd": 1
@@ -117,12 +119,18 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Category"
+  },
+  {
+   "fieldname": "datasource",
+   "fieldtype": "Link",
+   "label": "DataSource",
+   "options": "DataSource"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-14 01:25:57.839787",
+ "modified": "2023-04-18 12:28:24.531343",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "MetaData",
