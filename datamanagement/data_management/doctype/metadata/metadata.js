@@ -49,17 +49,19 @@
                 }
                 , __("Actions")
         );
+        
+        
+        if (frm.doc.datasource != null && rm.doc.datasource != '') {
+                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_tables', args:{
+                    'name':frm.doc.name
+                },
+                callback:function(r){
+                    console.log(r.message)
+                    frm.set_df_property('datasource_table', 'options', r.message);
+                }
+            });
                 
-        frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_tables', args:{
-            'name':frm.doc.name
-        },
-        callback:function(r){
-            console.log(r.message)
-            frm.set_df_property('datasource_table', 'options', r.message);
         }
-    });
-        
-        
         }
  	},
 
