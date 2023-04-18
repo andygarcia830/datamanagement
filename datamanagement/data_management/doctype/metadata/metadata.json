@@ -19,6 +19,8 @@
   "url",
   "storage_type",
   "datasource",
+  "datasource_table",
+  "data_folder",
   "creation_date",
   "retention_period_units",
   "retention_period_value",
@@ -125,12 +127,23 @@
    "fieldtype": "Link",
    "label": "DataSource",
    "options": "DataSource"
+  },
+  {
+   "fieldname": "datasource_table",
+   "fieldtype": "Select",
+   "label": "DataSource Table"
+  },
+  {
+   "fieldname": "data_folder",
+   "fieldtype": "Link",
+   "label": "Target Data Folder",
+   "options": "Data Folder"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-18 12:28:24.531343",
+ "modified": "2023-04-18 19:37:39.069703",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "MetaData",

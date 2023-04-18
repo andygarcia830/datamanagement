@@ -8,7 +8,8 @@
  "engine": "InnoDB",
  "field_order": [
   "client_name",
-  "client_namespace"
+  "client_namespace",
+  "storage_type"
  ],
  "fields": [
   {
@@ -20,12 +21,19 @@
    "fieldname": "client_namespace",
    "fieldtype": "Data",
    "label": "Client Namespace"
+  },
+  {
+   "default": "AWS S3",
+   "fieldname": "storage_type",
+   "fieldtype": "Select",
+   "label": "Storage Type",
+   "options": "AWS S3"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-18 13:34:00.481208",
+ "modified": "2023-04-18 19:27:59.422687",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Client Configuration",

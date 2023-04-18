@@ -25,7 +25,43 @@ frappe.ui.form.on("Data Folder", {
             frm.disable_save();
         }
 
-        
+   
+        frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_metadata', args:{
+            'name':frm.doc.name
+         },
+         callback:function(r){
+             console.log(r.message)
+             frm.doc.metadata=r.message
+             frm.refresh_field('metadata')
+
+             if(frm.doc.metadata != null) {
+                frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_access', args:{
+                    'metadata':frm.doc.metadata
+                },
+                callback:function(r){
+                    console.log(r.message)
+                    frm.set_value('data_owner', r.message.data_owner);
+                    frm.set_value('data_stewards', r.message.data_stewards);
+                    //console.log("OWNER="+r.message.data_owner+" USER=" + frappe.session.user);
+                    var gave_access=0;
+                    if(r.message.data_owner == frappe.session.user || frappe.session.user == 'Administrator'){
+                        frm.enable_save();
+                        show_access_buttons()
+                        }
+                    for (var i=0; i < r.message.data_stewards.length && gave_access==0; i ++){
+                        if (r.message.data_stewards[i].steward==frappe.session.user){
+                            show_access_buttons();
+                            gave_access=1;
+    
+                        }
+                    }
+                
+                    }
+                });
+            }
+         }
+        });
+     
 
         frappe.call({method:'datamanagement.data_management.services.services.fetch_resource_names', args:{
             'storage_type':frm.doc.storage_type
@@ -82,31 +118,7 @@ frappe.ui.form.on("Data Folder", {
         ,__('Actions')
         );
         
-        if(frm.doc.metadata != null) {
-            frappe.call({method:'datamanagement.data_management.doctype.data_folder.data_folder.fetch_access', args:{
-                'metadata':frm.doc.metadata
-            },
-            callback:function(r){
-                console.log(r.message)
-                frm.set_value('data_owner', r.message.data_owner);
-                frm.set_value('data_stewards', r.message.data_stewards);
-                //console.log("OWNER="+r.message.data_owner+" USER=" + frappe.session.user);
-                var gave_access=0;
-                if(r.message.data_owner == frappe.session.user || frappe.session.user == 'Administrator'){
-                    frm.enable_save();
-                    show_access_buttons()
-                    }
-                for (var i=0; i < r.message.data_stewards.length && gave_access==0; i ++){
-                    if (r.message.data_stewards[i].steward==frappe.session.user){
-                        show_access_buttons();
-                        gave_access=1;
-
-                    }
-                }
-            
-                }
-            });
-        }
+     
         
         function show_access_buttons() {
         frm.add_custom_button(

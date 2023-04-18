@@ -169,3 +169,14 @@ def validate_sources(doc):
 				validated = True
 			
 			
+
+@frappe.whitelist()
+def fetch_tables(name):
+	maindoc = frappe.get_doc('MetaData',name)
+	datasource =  frappe.get_doc('DataSource',maindoc.datasource)
+	tables = datasource.tables
+	result=[]
+	for item in tables:
+		result.append(item.table_name)
+
+	return result

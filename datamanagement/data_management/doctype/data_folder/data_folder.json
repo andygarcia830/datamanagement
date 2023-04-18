@@ -33,10 +33,10 @@
   },
   {
    "fieldname": "metadata",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
+   "is_virtual": 1,
    "label": "MetaData",
-   "options": "MetaData",
-   "reqd": 1,
+   "read_only": 1,
    "set_only_once": 1
   },
   {
@@ -112,7 +112,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-14 22:13:29.006930",
+ "modified": "2023-04-18 19:34:17.383734",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Folder",

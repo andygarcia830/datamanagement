@@ -210,3 +210,11 @@ def delete_object(name,object):
 		fetch_objects(storage_type,name)
 		maindoc.reload()
 		frappe.msgprint(str(response))
+
+@frappe.whitelist()
+def fetch_metadata(name):
+	metadata=frappe.get_all('MetaData', filters={'data_folder': name}, fields=['name'])
+	print(f'GOT METADATA {metadata}')
+	if len(metadata) > 0:
+		md= metadata[0]
+		return md['name']

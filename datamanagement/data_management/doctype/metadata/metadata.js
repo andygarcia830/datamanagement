@@ -5,51 +5,62 @@
  	refresh(frm) {
         if(!frm.is_new()){
 
-        frm.add_custom_button(
-            __('Reconstruct JSON'),function(){
-                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
-                    'name':frm.doc.name
-                },
-                callback:function(r){
-                    console.log(r.message)
-                    frm.reload_doc();
-                }
-               });
-                }
-            , __("Actions")
-        );
-   
-        
-
-         frm.add_custom_button(
-            __('Fetch Source Fields'),function(){
-               // frm.save();
-               frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_source_fields', args:{
-                   'name':frm.doc.name,
-                   'source':frm.doc.source
-               },
-               callback:function(r){
-                    
-                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
+            frm.add_custom_button(
+                __('Reconstruct JSON'),function(){
+                    frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
                         'name':frm.doc.name
+                    },
+                    callback:function(r){
+                        console.log(r.message)
+                        frm.reload_doc();
                     }
                 });
-               frm.reload_doc();
-               }
-              });
-              
-             }
-        , __("Actions")
-        );
+                    }
+                , __("Actions")
+            );
+    
+            
 
-        frm.add_custom_button(
-            __('Create Data Mapping'),function(){
-               window.location.replace('/app/data-mapping/new-data-mapping-1?metadata='+frm.doc.name1)
-              
-             }
-             , __("Actions")
-       );
-            }
+            frm.add_custom_button(
+                __('Fetch Source Fields'),function(){
+                // frm.save();
+                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_source_fields', args:{
+                    'name':frm.doc.name,
+                    'source':frm.doc.source
+                },
+                callback:function(r){
+                        
+                    frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
+                            'name':frm.doc.name
+                        }
+                    });
+                frm.reload_doc();
+                }
+                });
+                
+                }
+            , __("Actions")
+            );
+
+            frm.add_custom_button(
+                __('Create Data Mapping'),function(){
+                window.location.replace('/app/data-mapping/new-data-mapping-1?metadata='+frm.doc.name1)
+                
+                }
+                , __("Actions")
+        );
+                
+        frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_tables', args:{
+            'name':frm.doc.name
+        },
+        callback:function(r){
+            console.log(r.message)
+            frm.set_df_property('datasource_table', 'options', r.message);
+        }
+    });
+        
+        
+        }
  	},
 
 
