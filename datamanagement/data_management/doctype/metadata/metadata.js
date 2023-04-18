@@ -83,7 +83,26 @@
     }
     
 
-    }   
+    },
+
+    validate(frm){
+
+        frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.validate_sources', args:{
+                'doc':frm.doc.fields
+            },
+            callback:function(r){
+                console.log(r.message)
+                if (r.message != null && r.message != '') {
+                    frappe.validated=false
+                    frappe.throw(__(r.message));
+                }
+
+            }
+        });
+        
+    
+        }   
+    
 
    
 

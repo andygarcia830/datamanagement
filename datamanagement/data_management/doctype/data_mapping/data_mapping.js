@@ -64,56 +64,103 @@ frappe.ui.form.on("Data Mapping", {
 
 
 frappe.ui.form.on("FieldTransformation", {
-    field_transformations_add(frm,cdt,cdn) {
+    // field_transformations_add(frm,cdt,cdn) {
+    //     frappe.call({method:'datamanagement.data_management.doctype.data_mapping.data_mapping.fetch_fields', args:{
+    //         'metadata':frm.doc.metadata,
+    //         'name':frm.doc.name
+    //     },
+    //     callback:function(r){
+    //         console.log(r.message)
+    //         //console.log('ADDING FIELD '+cdt+" "+cdn);
+    //         //console.log('ADDING FIELD '+frm.fields);
+    //         //frm.set_df_property('md_field', 'options', r.message);   
+            
+    //         var df = frappe.meta.get_docfield('FieldTransformation','md_field', frm.doc.name);
+    //         frm.refresh();
+    //         df.options=r.message;
+
+    //         // let item = locals[cdt][cdn]; 
+    //         // item.md_field='TEST'
+
+    //         frm.refresh_field('field_transformations');
+
+      
+    //     }
+        
+    // });
+    // },
+
+   form_render:function(cfrm,cdt,cdn) {
+        var df = frappe.meta.get_docfield('FieldTransformation','md_field', cfrm.doc.name);
+        let item = locals[cdt][cdn]; 
+        console.log("LOCALS="+Object.getOwnPropertyNames(item));
+        console.log("Doctype="+Object.keys(cfrm.fields_dict.field_transformations));
         frappe.call({method:'datamanagement.data_management.doctype.data_mapping.data_mapping.fetch_fields', args:{
-            'metadata':frm.doc.metadata,
-            'name':frm.doc.name
+            'metadata':cfrm.doc.metadata,
+            'name':cfrm.doc.name
         },
         callback:function(r){
             console.log(r.message)
-            //console.log('ADDING FIELD '+cdt+" "+cdn);
+            console.log('ADDING FIELD '+cfrm+" "+cdt+" "+cdn);
             //console.log('ADDING FIELD '+frm.fields);
             //frm.set_df_property('md_field', 'options', r.message);   
-            
-            var df = frappe.meta.get_docfield('FieldTransformation','md_field', frm.doc.name);
-            frm.refresh();
+            //var df = frappe.meta.get_docfield('FieldTransformation','md_field', cfrm.doc.name);
             df.options=r.message;
+            // df.value='TEST'
+            console.log("df.value="+Object.getOwnPropertyNames(df));
+            console.log("df.value="+df.options);
+    
 
             // let item = locals[cdt][cdn]; 
-            // item.md_field='TEST'
+            // console.log("ITEM="+Object.keys(item));
+            // console.log("ITEM="+item.field);
+            //cfrm.reload_doc();
 
-            frm.refresh_field('field_transformations');
+       
 
       
         }
         
     });
+
+    frappe.call({method:'datamanagement.data_management.doctype.data_mapping.data_mapping.fetch_origin_fields', args:{
+        'sources':cfrm.doc.source,
     },
-
-   form_render(frm,cdt,cdn) {
-        frappe.call({method:'datamanagement.data_management.doctype.data_mapping.data_mapping.fetch_fields', args:{
-            'metadata':frm.doc.metadata,
-            'name':frm.doc.name
-        },
-        callback:function(r){
-            console.log(r.message)
-            //console.log('ADDING FIELD '+cdt+" "+cdn);
-            //console.log('ADDING FIELD '+frm.fields);
-            //frm.set_df_property('md_field', 'options', r.message);   
-            
-            var df = frappe.meta.get_docfield('FieldTransformation','md_field', frm.doc.name);
-            frm.refresh();
-            df.options=r.message;
-
-            // let item = locals[cdt][cdn]; 
-            // item.md_field='TEST'
-
-            frm.refresh_field('field_transformations');
-
-      
-        }
+    callback:function(r){
+        console.log("SOURCE1 = "+cfrm.doc.source_field_1)
         
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_1', cfrm.doc.name);
+        df.options=r.message;
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_2', cfrm.doc.name);
+        df.options=r.message;
+        
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_3', cfrm.doc.name);
+        df.options=r.message;
+        
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_4', cfrm.doc.name);
+        df.options=r.message;
+       
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_5', cfrm.doc.name);
+        df.options=r.message;
+        
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_6', cfrm.doc.name);
+        df.options=r.message;
+        
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_7', cfrm.doc.name);
+        df.options=r.message;
+        
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_8', cfrm.doc.name);
+        df.options=r.message;
+        
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_9', cfrm.doc.name);
+        df.options=r.message;
+        var df = frappe.meta.get_docfield('FieldTransformation','source_field_10', cfrm.doc.name);
+        df.options=r.message;
+
+    }
+    
     });
+    
     },
 
 

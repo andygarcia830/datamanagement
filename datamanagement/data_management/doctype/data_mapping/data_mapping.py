@@ -1,7 +1,7 @@
 # Copyright (c) 2023, Andy Garcia and contributors
 # For license information, please see license.txt
 
-import frappe
+import frappe,json
 from frappe.model.document import Document
 
 class DataMapping(Document):
@@ -36,4 +36,23 @@ def fetch_fields(metadata,name):
 		result.append(item.name1)
 
 	print(result)
+	return result
+
+
+
+@frappe.whitelist()
+def fetch_origin_fields(sources):
+	print(f'FETCHING ORIGIN FIELDS FOR {sources}')
+	fields = json.loads(sources)
+	result=[]
+	for item in fields:
+		metadata = item['metadata']
+		mddoc=frappe.get_doc('MetaData',metadata)
+		mdfields = mddoc.fields
+		# combine MetaData and Field Name
+		for item2 in mdfields:
+			thisEntry=metadata+':'+item2.name1
+			result.append(thisEntry)
+
+		#print(metadata)
 	return result

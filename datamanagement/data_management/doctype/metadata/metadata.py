@@ -119,3 +119,41 @@ def set_origin(doc):
 	maindoc.save()
 
 	print(f'FIELDS={fields}')
+
+
+@frappe.whitelist()
+def validate_sources(doc):
+	fields = json.loads(doc)
+	for item in fields:
+		print(item)
+	
+		if item['name1'] != None and item['name1'] != '':
+			name1=item['name1']
+			print(f'THIS FIELD={name1}')
+			validated = False
+
+			if item['source'] == None or item['source'] == '':
+				validated = True
+
+			else:
+				source = item['source']
+				thisMD2=frappe.get_doc('MetaData',source)
+				for item2 in thisMD2.fields:
+					if item2.name1 == name1:
+						validated = True
+
+			if not validated:
+				msg= f'Field {name1} does not exist in Source {source}'
+				return msg
+			origin=item['origin']
+			if (origin == None or origin == '' or source == origin):
+				pass
+			else:
+				thisMD3=frappe.get_doc('MetaData',item['origin'])
+				for item3 in thisMD3.fields:
+					if item3.name1 == name1:
+						validated = True
+				if not validated:
+					msg= f'Field {name1} does not exist in Origin {origin}'
+					return msg
+
