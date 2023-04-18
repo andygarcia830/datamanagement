@@ -21,7 +21,7 @@ def fetch_details(datasource):
 	result=[]
 	result.append({'method':maindoc.method})
 	result.append({'sqlType':maindoc.type})
-	result.append({'clientName':maindoc.client_namespace})
+	result.append({'clientName':frappe.get_doc('Client Configuration').client_namespace})
 	result.append({'hostName':maindoc.host})
 	result.append({'portNo':maindoc.port})
 	result.append({'dbName':maindoc.database_name})

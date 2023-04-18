@@ -248,5 +248,30 @@
   "share": 0,
   "submit": 0,
   "write": 1
+ },
+ {
+  "amend": 0,
+  "cancel": 0,
+  "create": 1,
+  "delete": 1,
+  "docstatus": 0,
+  "doctype": "Custom DocPerm",
+  "email": 1,
+  "export": 1,
+  "if_owner": 0,
+  "import": 0,
+  "modified": "2023-04-18 12:55:30.957996",
+  "name": "dabf262a1f",
+  "parent": "DataSource",
+  "permlevel": 0,
+  "print": 1,
+  "read": 1,
+  "report": 0,
+  "role": "Data Management Admin",
+  "select": 0,
+  "set_user_permissions": 0,
+  "share": 0,
+  "submit": 0,
+  "write": 1
  }
 ]

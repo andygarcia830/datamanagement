@@ -11,7 +11,6 @@
   "name1",
   "type",
   "method",
-  "client_namespace",
   "host",
   "port",
   "database_name",
@@ -84,12 +83,6 @@
    "options": "DatabaseTable"
   },
   {
-   "fieldname": "client_namespace",
-   "fieldtype": "Data",
-   "label": "Client Namespace",
-   "reqd": 1
-  },
-  {
    "fieldname": "process_date",
    "fieldtype": "Date",
    "label": "Process Date"
@@ -97,7 +90,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-18 13:14:42.426681",
+ "modified": "2023-04-18 13:35:00.809172",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DataSource",
