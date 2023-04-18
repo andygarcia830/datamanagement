@@ -36,7 +36,6 @@
                frm.reload_doc();
                }
               });
-              frm.reload_doc();
               
              }
         , __("Actions")

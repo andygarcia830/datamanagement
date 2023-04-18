@@ -132,7 +132,11 @@ def validate_sources(doc):
 			print(f'THIS FIELD={name1}')
 			validated = False
 
-			if item['source'] == None or item['source'] == '':
+			try:
+
+				if item['source'] == None or item['source'] == '':
+					validated = True
+			except:
 				validated = True
 
 			else:
@@ -145,15 +149,21 @@ def validate_sources(doc):
 			if not validated:
 				msg= f'Field {name1} does not exist in Source {source}'
 				return msg
-			origin=item['origin']
-			if (origin == None or origin == '' or source == origin):
-				pass
-			else:
-				thisMD3=frappe.get_doc('MetaData',item['origin'])
-				for item3 in thisMD3.fields:
-					if item3.name1 == name1:
-						validated = True
-				if not validated:
-					msg= f'Field {name1} does not exist in Origin {origin}'
-					return msg
+			try:
+				origin=item['origin']
+				if (origin == None or origin == '' or source == origin):
+					pass
+				else:
+					thisMD3=frappe.get_doc('MetaData',item['origin'])
+					for item3 in thisMD3.fields:
+						if item3.name1 == name1:
+							validated = True
+					if not validated:
+						msg= f'Field {name1} does not exist in Origin {origin}'
+						return msg
 
+
+			except:
+				validated = True
+			
+			
