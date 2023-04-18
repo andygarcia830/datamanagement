@@ -25,7 +25,8 @@ def create_json(name):
 	sourceList=[]
 	for entry in sources:
 		#print(f'GOT SOURCE {entry.metadata}')
-		sourceList.append(entry.metadata)
+		if sourceList.count(entry.metadata) == 0:
+			sourceList.append(entry.metadata)
 
 	# get fields
 	fields = frappe.get_all('MetaDataFields', filters = dict(parent=name),fields = 'name1,description,type,source')
@@ -33,13 +34,14 @@ def create_json(name):
 
 	for entry in fields:
 		fieldDict={}
-		#print(f'GOT FIELD {entry.name1}')
+		print(f'GOT FIELD {entry.name1}')
 		fieldDict['name1']=entry.name1
 		fieldDict['description']=entry.description
 		fieldDict['type']=entry.type
 		fieldDict['source']=entry.source
 		fieldDict['origin']=entry.origin
-		fieldList.append(fieldDict)
+		if fieldList.count(fieldDict) == 0:
+			fieldList.append(fieldDict)
 
 
 	jsonList = []

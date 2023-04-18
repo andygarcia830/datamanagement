@@ -29,12 +29,12 @@
                    'source':frm.doc.source
                },
                callback:function(r){
-                    frm.reload_doc();
-            //     frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
-            //         'name':frm.doc.name
-            //     }
-            //    });
-               
+                    
+                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
+                        'name':frm.doc.name
+                    }
+                });
+               frm.reload_doc();
                }
               });
               
