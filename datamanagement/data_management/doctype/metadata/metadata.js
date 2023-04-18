@@ -23,17 +23,18 @@
 
          frm.add_custom_button(
             __('Fetch Source Fields'),function(){
-                frm.save();
+               // frm.save();
                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_source_fields', args:{
                    'name':frm.doc.name,
                    'source':frm.doc.source
                },
                callback:function(r){
-                frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
-                    'name':frm.doc.name
-                }
-               });
-               frm.reload_doc();
+                    frm.reload_doc();
+            //     frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.create_json', args:{
+            //         'name':frm.doc.name
+            //     }
+            //    });
+               
                }
               });
               
