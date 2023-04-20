@@ -12,13 +12,14 @@
   "method",
   "host",
   "port",
+  "target_storage_type",
+  "column_break_pv83",
   "database_name",
   "schema_name",
   "db_username",
   "db_password",
-  "tables",
-  "target_storage_type",
-  "process_date"
+  "section_break_pxhy",
+  "tables"
  ],
  "fields": [
   {
@@ -77,21 +78,24 @@
    "options": "DatabaseTable"
   },
   {
-   "fieldname": "process_date",
-   "fieldtype": "Date",
-   "label": "Process Date"
-  },
-  {
    "default": "AWS S3",
    "fieldname": "target_storage_type",
    "fieldtype": "Select",
    "label": "Target Storage Type",
    "options": "AWS S3"
+  },
+  {
+   "fieldname": "column_break_pv83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_pxhy",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-20 11:29:55.784343",
+ "modified": "2023-04-20 11:40:26.388623",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DataSource",
