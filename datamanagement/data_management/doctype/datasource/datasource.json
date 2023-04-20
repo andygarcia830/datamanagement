@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{type}-{name1}",
+ "autoname": "field:name1",
  "creation": "2023-04-18 12:16:16.950811",
  "default_view": "List",
  "doctype": "DocType",
@@ -9,7 +9,6 @@
  "engine": "InnoDB",
  "field_order": [
   "name1",
-  "type",
   "method",
   "host",
   "port",
@@ -29,12 +28,6 @@
    "label": "Name",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "RDBMS"
   },
   {
    "fieldname": "method",
@@ -98,11 +91,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-18 15:11:54.875630",
+ "modified": "2023-04-20 11:29:55.784343",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DataSource",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
