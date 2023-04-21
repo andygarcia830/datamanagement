@@ -23,7 +23,7 @@
   {
    "columns": 6,
    "fieldname": "transformation",
-   "fieldtype": "Text",
+   "fieldtype": "Code",
    "in_list_view": 1,
    "label": "Transformation",
    "reqd": 1,
@@ -108,7 +108,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-04-18 08:43:07.608177",
+ "modified": "2023-04-20 21:10:04.778885",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "FieldTransformation",
