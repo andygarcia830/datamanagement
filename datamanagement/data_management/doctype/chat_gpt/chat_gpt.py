@@ -32,7 +32,10 @@ class ChatGPT(Document):
 
 
 def api_key():
-    if  os.environ["OPENAI_API_KEY"] == None or  os.environ["OPENAI_API_KEY"] =='':
+    try:
+        os.environ["OPENAI_API_KEY"] 
+        
+    except:
         os.environ["OPENAI_API_KEY"] = frappe.get_doc('OpenAI Settings').openai_api_key
 
 
@@ -143,6 +146,7 @@ def ask_question(msg,jsonStr,context):
 
 @frappe.whitelist()
 def train_chatbot(context):
+    api_key()
     contextdoc=frappe.get_doc('GPT Context',context)
     if (contextdoc != None):
         vector_directory='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_vectors/'+contextdoc.csv_directory
