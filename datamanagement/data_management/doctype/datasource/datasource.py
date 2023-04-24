@@ -21,7 +21,7 @@ def fetch_details(datasource):
 	print(f'TABLES={tables}')
 	result=[]
 	result.append({'method':maindoc.method})
-	result.append({'sqlType':maindoc.type})
+	result.append({'sqlType':maindoc.sql_type})
 	result.append({'clientName':frappe.get_doc('Client Configuration').client_namespace})
 	result.append({'hostName':maindoc.host})
 	result.append({'portNo':maindoc.port})
@@ -31,7 +31,6 @@ def fetch_details(datasource):
 	result.append({'usr':maindoc.db_username})
 	result.append({'pwd':maindoc.db_password})
 	result.append({'processDate':maindoc.process_date})
-	result.append({'sqlType':maindoc.sql_type})
 	result.append({'bucketName':maindoc.bucket_name})
 
 	return result
