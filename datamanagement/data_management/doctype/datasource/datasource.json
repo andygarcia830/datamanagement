@@ -13,11 +13,13 @@
   "host",
   "port",
   "target_storage_type",
+  "bucket_name",
   "column_break_pv83",
   "database_name",
   "schema_name",
   "db_username",
   "db_password",
+  "sql_type",
   "section_break_pxhy",
   "tables"
  ],
@@ -91,11 +93,22 @@
   {
    "fieldname": "section_break_pxhy",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "bucket_name",
+   "fieldtype": "Data",
+   "label": "Bucket Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sql_type",
+   "fieldtype": "Data",
+   "label": "SQL Type"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-20 21:07:15.762283",
+ "modified": "2023-04-24 16:12:56.272352",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DataSource",

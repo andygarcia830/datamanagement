@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"cBa53vfDF6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Data Management</span>\",\"col\":12}},{\"id\":\"7QUbP0Aabi\",\"type\":\"card\",\"data\":{\"card_name\":\"MetaData\",\"col\":4}},{\"id\":\"9UX9R-b10K\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"GrjC-f4wrd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xMYl_aqPOx\",\"type\":\"card\",\"data\":{\"card_name\":\"AWS\",\"col\":4}},{\"id\":\"WrysymXSqY\",\"type\":\"card\",\"data\":{\"card_name\":\"Developers\",\"col\":4}},{\"id\":\"3TWg-_NCVj\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Knc9q9h6GH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Client Configuration\",\"col\":3}}]",
+ "content": "[{\"id\":\"cBa53vfDF6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Data Management</span>\",\"col\":12}},{\"id\":\"7QUbP0Aabi\",\"type\":\"card\",\"data\":{\"card_name\":\"MetaData\",\"col\":4}},{\"id\":\"9UX9R-b10K\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"GrjC-f4wrd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xMYl_aqPOx\",\"type\":\"card\",\"data\":{\"card_name\":\"AWS\",\"col\":4}},{\"id\":\"WrysymXSqY\",\"type\":\"card\",\"data\":{\"card_name\":\"Developers\",\"col\":4}},{\"id\":\"3TWg-_NCVj\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Knc9q9h6GH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Client Configuration\",\"col\":3}},{\"id\":\"0ChL71QH57\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ChatGPT\",\"col\":3}}]",
  "creation": "2023-04-04 11:29:56.103883",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -99,7 +99,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Data",
-   "link_count": 3,
+   "link_count": 4,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -132,9 +132,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "GPT Context",
+   "link_count": 0,
+   "link_to": "GPT Context",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-04-18 13:38:59.296068",
+ "modified": "2023-04-24 12:02:07.693286",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Management",
@@ -150,6 +160,13 @@
    "doc_view": "List",
    "label": "Client Configuration",
    "link_to": "Client Configuration",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "ChatGPT",
+   "link_to": "Chat GPT",
    "type": "DocType"
   }
  ],

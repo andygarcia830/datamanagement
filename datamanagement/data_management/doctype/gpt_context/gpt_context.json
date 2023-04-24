@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2023-04-22 23:36:36.761589",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "instructions_prompt",
+  "greeting_message",
+  "csv_directory"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "You are an AI assistant for answering questions about [ENTER TOPIC HERE]\nYou are given their data in a structured file. Limit your answers to data within this file.\nProvide a complete answer.\nIf you don't know the answer, just say \"Hmm, I'm not sure.\" Don't try to make up an answer.\nIf the question is not about the applicants, politely inform them that you are tuned to only answer questions about the topic.",
+   "fieldname": "instructions_prompt",
+   "fieldtype": "Code",
+   "label": "Instructions Prompt"
+  },
+  {
+   "fieldname": "greeting_message",
+   "fieldtype": "Data",
+   "label": "Greeting Message"
+  },
+  {
+   "fieldname": "csv_directory",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "CSV Directory",
+   "reqd": 1,
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-24 12:10:32.852182",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "GPT Context",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

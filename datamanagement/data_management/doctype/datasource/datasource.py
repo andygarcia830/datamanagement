@@ -31,6 +31,8 @@ def fetch_details(datasource):
 	result.append({'usr':maindoc.db_username})
 	result.append({'pwd':maindoc.db_password})
 	result.append({'processDate':maindoc.process_date})
+	result.append({'sqlType':maindoc.sql_type})
+	result.append({'bucketName':maindoc.bucket_name})
 
 	return result
 
@@ -41,7 +43,7 @@ def create_folders(name):
 	print('CREATE')
 	maindoc = frappe.get_doc('DataSource',name)
 	storage_type=maindoc.target_storage_type
-	resource=frappe.get_doc('Client Configuration').client_namespace
+	resource=frappe.get_doc('Client Configuration').bucket_name
 	folder=maindoc.database_name
 
 	tables = []
