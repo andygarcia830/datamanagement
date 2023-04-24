@@ -65,7 +65,10 @@ frappe.ui.form.on("Chat GPT", {
        };
 
        if(frm.doc.gpt_context != null && frm.doc.gpt_context != '') show_greeting();
-       else frm.set_df_property('send','hidden',true);
+       else {
+        frm.set_df_property('input','hidden',true);
+        frm.set_df_property('send','hidden',true);
+       }
 	},
 
     gpt_context(frm){
@@ -126,6 +129,7 @@ frappe.ui.form.on("Chat GPT", {
                 frm.doc.json=[];
                 frm.set_df_property('display','options',frm.doc.display);
                 frm.set_df_property('send','hidden',false);
+                frm.set_df_property('input','hidden',false);
             }
             });
 
