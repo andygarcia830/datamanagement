@@ -20,7 +20,9 @@
   "access_section",
   "data_owner",
   "column_break_fdas",
-  "data_stewards"
+  "data_stewards",
+  "logging_section",
+  "logs"
  ],
  "fields": [
   {
@@ -36,8 +38,7 @@
    "fieldtype": "Data",
    "is_virtual": 1,
    "label": "MetaData",
-   "read_only": 1,
-   "set_only_once": 1
+   "read_only": 1
   },
   {
    "fieldname": "objects",
@@ -107,12 +108,23 @@
    "label": "Resource",
    "reqd": 1,
    "set_only_once": 1
+  },
+  {
+   "fieldname": "logging_section",
+   "fieldtype": "Section Break",
+   "label": "Logging"
+  },
+  {
+   "fieldname": "logs",
+   "fieldtype": "Table",
+   "label": "Logs",
+   "options": "Log Entry"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-18 19:34:17.383734",
+ "modified": "2023-04-25 11:48:33.094291",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Folder",

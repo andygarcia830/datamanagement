@@ -5,6 +5,7 @@ import frappe,boto3,os
 import datamanagement.data_management.doctype.aws_configuration.aws_configuration
 from frappe.model.document import Document
 from frappe.utils import cstr
+from frappe.utils import now
 
 class DataFolder(Document):
 	pass
@@ -218,3 +219,20 @@ def fetch_metadata(name):
 	if len(metadata) > 0:
 		md= metadata[0]
 		return md['name']
+	
+
+@frappe.whitelist()
+def submit_log(folder,message,entry_count):
+	maindoc = frappe.get_doc('Data Folder',folder)
+	logtable=maindoc.logs
+	print(f'GOT FOLDER {folder} {entry_count} {message}')
+	logentry=maindoc.append('logs',{})
+	logentry.date=now(),
+	logentry.message=message,
+	logentry.entry_count=entry_count
+	logtable=maindoc.logs
+	print(f'GOT LOGS {logtable}')
+	
+	maindoc.save()
+	print(f'GOT LOGS {logtable}')
+	return 'SUCCESS'
