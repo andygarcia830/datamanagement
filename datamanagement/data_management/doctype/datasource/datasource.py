@@ -1,7 +1,7 @@
 # Copyright (c) 2023, Andy Garcia and contributors
 # For license information, please see license.txt
 
-import frappe,boto3
+import frappe,boto3,json
 import datamanagement.data_management.doctype.aws_configuration.aws_configuration
 from frappe.model.document import Document
 
@@ -17,7 +17,11 @@ def fetch_details(datasource):
 	
 	tables = []
 	for item in maindoc.tables:
-		tables.append(item.table_name)
+		tableEntry={}
+		tableEntry['table_name']=item.table_name
+		partitions = json.loads(item.partitions)
+		tableEntry['paritions']=partitions
+		tables.append(tableEntry)
 	print(f'TABLES={tables}')
 	result=[]
 	result.append({'method':maindoc.method})
