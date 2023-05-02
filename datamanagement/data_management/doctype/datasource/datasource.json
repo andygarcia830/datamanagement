@@ -73,7 +73,6 @@
    "label": "DB Password"
   },
   {
-   "allow_in_quick_entry": 1,
    "fieldname": "tables",
    "fieldtype": "Table",
    "label": "Tables",
@@ -102,13 +101,14 @@
   },
   {
    "fieldname": "sql_type",
-   "fieldtype": "Data",
-   "label": "SQL Type"
+   "fieldtype": "Select",
+   "label": "SQL Type",
+   "options": "postgresql\nmysql"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-24 16:12:56.272352",
+ "modified": "2023-05-02 10:18:45.719469",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DataSource",

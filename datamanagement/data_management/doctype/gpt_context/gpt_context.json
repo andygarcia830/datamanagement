@@ -11,7 +11,7 @@
   "name1",
   "instructions_prompt",
   "greeting_message",
-  "csv_directory"
+  "data_source"
  ],
  "fields": [
   {
@@ -34,17 +34,15 @@
    "label": "Greeting Message"
   },
   {
-   "fieldname": "csv_directory",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "CSV Directory",
-   "reqd": 1,
-   "unique": 1
+   "fieldname": "data_source",
+   "fieldtype": "Link",
+   "label": "Data Source",
+   "options": "DataSource"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-24 12:10:32.852182",
+ "modified": "2023-04-26 12:32:49.161317",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "GPT Context",

@@ -6,6 +6,7 @@ from frappe.model.document import Document
 from frappe.utils import get_site_name
 
 from langchain.llms import OpenAI
+from langchain.chat_models.openai import ChatOpenAI
 from langchain.document_loaders.csv_loader import CSVLoader
 
 
@@ -16,10 +17,22 @@ from langchain.vectorstores.faiss import FAISS
 
 from langchain.embeddings import OpenAIEmbeddings
 
-from langchain.prompts.prompt import PromptTemplate
+from langchain.prompts.prompt import PromptTemplate,StringPromptTemplate
 from langchain.chains import ChatVectorDBChain
 
-from langchain.chains import RetrievalQA
+from langchain.agents import Tool
+from langchain.agents import initialize_agent
+#from langchain.agents import create_sql_agent
+import pandas as pd
+
+from langchain.agents.agent_toolkits import SQLDatabaseToolkit
+from langchain.sql_database import SQLDatabase
+from langchain.agents import AgentExecutor
+
+from datamanagement.data_management.doctype.chat_gpt.sql_with_memory import create_sql_agent, create_sql_agent_with_memory
+
+
+from typing import List, Union
 
 import os,pickle
 
@@ -31,12 +44,19 @@ class ChatGPT(Document):
 	pass
 
 
+
 def api_key():
     try:
-        os.environ["OPENAI_API_KEY"] 
-        
+        if (os.environ["OPENAI_API_KEY"] == None or os.environ["OPENAI_API_KEY"] == ''):
+            os.environ["OPENAI_API_KEY"] = frappe.get_doc('OpenAI Settings').openai_api_key
+            
     except:
         os.environ["OPENAI_API_KEY"] = frappe.get_doc('OpenAI Settings').openai_api_key
+
+
+    
+    key=os.environ["OPENAI_API_KEY"]
+    print(f'OPENAI KEY={key}')
 
 
 @frappe.whitelist()
@@ -50,41 +70,7 @@ def send(msg,jsonStr):
 
 
 
-def load_csv(csv_folder,vector_directory):
-    api_key()
-
-    documents=[]
-    vectorstore=None
-
-    for filename in os.listdir(csv_folder):
-        file = os.path.join(csv_folder, filename)
-        # checking if it is a file
-        
-        if  filename.endswith('.csv') and os.path.isfile(file):
-            print(f'adding {file} to training data')
-            loader = CSVLoader(file_path=file)
-            data = loader.load()
-            # Split text
-            text_splitter = RecursiveCharacterTextSplitter(  chunk_size = 100,
-                chunk_overlap  = 20,
-                length_function = len,)
-            documents = text_splitter.split_documents(data)
-            print(f'DOCUMENTS SIZE={len(documents)}')
-            # Load Data to vectorstore
-            embeddings = OpenAIEmbeddings()
-            if vectorstore == None:
-                vectorstore = FAISS.from_documents(documents, embeddings)
-                print(f'VECTOR STORE SIZE={vectorstore}')
-            else:
-                thisvector = FAISS.from_documents(documents, embeddings)
-                vectorstore.merge_from(thisvector)
-
-    print(f'SAVING TO {vector_directory}: {vectorstore}')
-    # Save vectorstore
-    # with open(vector_file, "wb") as f:
-    #     pickle.dump(vectorstore, f)
-    vectorstore.save_local(vector_directory)
-
+# 
 
 
 
@@ -121,37 +107,53 @@ def get_chain(vectorstore,prompt):
 
     return qa_chain
 
+
+# def answer_with_embeddings(msg,jsonStr):
+#     vector_dir='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_vectors/'+contextdoc.csv_directory
+#     # with open(vector_file, "rb") as f:
+#     #     vectorstore = pickle.load(f)
+#     embeddings = OpenAIEmbeddings()
+#     vectorstore=FAISS.load_local(vector_dir,embeddings)
+#     prompt = contextdoc.instructions_prompt
+#     if prompt == None:
+#         prompt = ''
+#     qa_chain = get_chain(vectorstore,prompt)
+#     jsonDict=json.loads(jsonStr)
+#     #print(jsonDict)
+#     print(vectorstore)
+#     result = qa_chain({"question": msg, "chat_history": jsonDict})
+#     jsonDict.append((msg,result['answer']))
+#     print(f"ANSWER:{result['answer']}")
+#     return jsonDict
+
+
+
 @frappe.whitelist()
 def ask_question(msg,jsonStr,context):
     api_key()
     contextdoc=frappe.get_doc('GPT Context',context)
     if (contextdoc != None):
-        vector_dir='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_vectors/'+contextdoc.csv_directory
-        # with open(vector_file, "rb") as f:
-        #     vectorstore = pickle.load(f)
-        embeddings = OpenAIEmbeddings()
-        vectorstore=FAISS.load_local(vector_dir,embeddings)
-        prompt = contextdoc.instructions_prompt
-        if prompt == None:
-            prompt = ''
-        qa_chain = get_chain(vectorstore,prompt)
-        jsonDict=json.loads(jsonStr)
-        #print(jsonDict)
-        print(vectorstore)
-        result = qa_chain({"question": msg, "chat_history": jsonDict})
-        jsonDict.append((msg,result['answer']))
-        print(f"ANSWER:{result['answer']}")
-        return jsonDict
+        #return answer_with_embeddings(msg,jsonStr)
+        datasource = frappe.get_doc('DataSource',contextdoc.data_source)
+        connectstring=f'{datasource.sql_type}://{datasource.db_username}:{datasource.db_password}@{datasource.host}:{datasource.port}/{datasource.database_name}'
+        print(f'CONNECTING WITH {connectstring}')
+        return answer_with_sql_agent(msg,jsonStr,connectstring)
+
+        # csv_file='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_training/candidates/candidates-2023-04-14.csv'
+        # return answer_with_pandas_agent(msg,jsonStr,csv_file)
 
 
-@frappe.whitelist()
-def train_chatbot(context):
-    api_key()
-    contextdoc=frappe.get_doc('GPT Context',context)
-    if (contextdoc != None):
-        vector_directory='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_vectors/'+contextdoc.csv_directory
-        csv_directory='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_training/'+contextdoc.csv_directory
-        load_csv(csv_directory,vector_directory)
+        
+
+
+# @frappe.whitelist()
+# def train_chatbot(context):
+#     api_key()
+#     contextdoc=frappe.get_doc('GPT Context',context)
+#     if (contextdoc != None):
+#         vector_directory='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_vectors/'+contextdoc.csv_directory
+#         csv_directory='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_training/'+contextdoc.csv_directory
+#         load_csv(csv_directory,vector_directory)
   
 @frappe.whitelist()
 def fetch_greeting(context):
@@ -159,6 +161,62 @@ def fetch_greeting(context):
     if (contextdoc != None):
         return contextdoc.greeting_message
   
+
+
+# Using the SQL Agent Approach
+def answer_with_sql_agent(msg,jsonStr,connectstring):
+    api_key()
+    jsonDict=json.loads(jsonStr)
+
+    
+    db = SQLDatabase.from_uri(connectstring)
+    toolkit = SQLDatabaseToolkit(db=db)
+
+    #print(f'TOOLS={toolkit.get_tools()}')
+
+
+    # agent_executor = initialize_agent(
+
+    #     agent='conversational-react-description',
+    #     tools=toolkit.get_tools(),
+    #     llm = OpenAI(temperature=0,max_tokens=2048),
+    #     verbose=True,
+    #     memory=memory,
+    #     max_iterations=10
+    # )
+
+    
+    agent_executor = create_sql_agent(
+        llm=OpenAI(temperature=0,model_name='text-davinci-003'),
+        #llm=ChatOpenAI(temperature=0,model_name='gpt-3.5-turbo'),
+        toolkit=toolkit,
+        verbose=True,
+    )
+    if jsonStr == None:
+         jsonStr=''
+
+    print(f'CHAT HISTORY={jsonStr}')
+
+    result = agent_executor.run({'input':msg,'chat_history':jsonStr})
+    #print(f'RESULT={result}')
+    jsonDict.append((msg,result))
+    return jsonDict
+
+# Using the Pandas Agent approach
+def answer_with_pandas_agent(msg,jsonStr,csv_file):
+    api_key()
+    jsonDict=json.loads(jsonStr)
+
+    
+    df = pd.read_csv(csv_file)
+    agent = create_pandas_dataframe_agent(OpenAI(temperature=0,model_name='text-davinci-003'), df, verbose=True)
+
+ 
+
+    result = agent.run(msg)
+    #print(f'RESULT={result}')
+    jsonDict.append((msg,result))
+    return jsonDict
 
 
 
@@ -195,3 +253,39 @@ def fetch_greeting(context):
 #     index.save_to_disk(index_file)
 
     #return index
+
+
+#def load_csv(csv_folder,vector_directory):
+#     api_key()
+
+#     documents=[]
+#     vectorstore=None
+
+#     for filename in os.listdir(csv_folder):
+#         file = os.path.join(csv_folder, filename)
+#         # checking if it is a file
+        
+#         if  filename.endswith('.csv') and os.path.isfile(file):
+#             print(f'adding {file} to training data')
+#             loader = CSVLoader(file_path=file)
+#             data = loader.load()
+#             # Split text
+#             text_splitter = RecursiveCharacterTextSplitter(  chunk_size = 100,
+#                 chunk_overlap  = 20,
+#                 length_function = len,)
+#             documents = text_splitter.split_documents(data)
+#             print(f'DOCUMENTS SIZE={len(documents)}')
+#             # Load Data to vectorstore
+#             embeddings = OpenAIEmbeddings()
+#             if vectorstore == None:
+#                 vectorstore = FAISS.from_documents(documents, embeddings)
+#                 print(f'VECTOR STORE SIZE={vectorstore}')
+#             else:
+#                 thisvector = FAISS.from_documents(documents, embeddings)
+#                 vectorstore.merge_from(thisvector)
+
+#     print(f'SAVING TO {vector_directory}: {vectorstore}')
+#     # Save vectorstore
+#     # with open(vector_file, "wb") as f:
+#     #     pickle.dump(vectorstore, f)
+#     vectorstore.save_local(vector_directory)
