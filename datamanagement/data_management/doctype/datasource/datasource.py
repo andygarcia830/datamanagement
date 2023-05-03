@@ -21,6 +21,9 @@ def fetch_details(datasource):
 		tableEntry['table_name']=item.table_name
 		partitions = json.loads(item.partitions)
 		tableEntry['paritions']=partitions
+		tableEntry['table_type']=item.table_type
+		tableEntry['last_processed_id']=item.last_processed_id
+		
 		tables.append(tableEntry)
 	print(f'TABLES={tables}')
 	result=[]
@@ -64,5 +67,18 @@ def create_folders(name):
 		for item in tables:
 			thisObject=folder+'/'+item
 			s3.put_object(Bucket=resource,Key=thisObject)
+
+
+@frappe.whitelist()
+def set_last_processed_id(datasource, table, value):
+	maindoc = frappe.get_doc('DataSource',datasource)
+
+	for item in maindoc.tables:
+		if item.table_name == table:
+			item.last_processed_id=value
+			maindoc.save()
+			return 'SUCCESS'
+		
+	frappe.throw(f'Table {table} does not exist in Data Source {datasource}')
 
 
