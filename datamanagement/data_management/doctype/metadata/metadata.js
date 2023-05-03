@@ -51,9 +51,9 @@
         );
         
         
-        if (frm.doc.datasource != null && rm.doc.datasource != '') {
+        if (frm.doc.datasource != null && frm.doc.datasource != '') {
                 frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_tables', args:{
-                    'name':frm.doc.name
+                    'name':frm.doc.datasource
                 },
                 callback:function(r){
                     console.log(r.message)
@@ -114,10 +114,24 @@
         });
         
     
-        }   
+        }  ,
     
 
-   
+   datasource(frm){
+    if (frm.doc.datasource != null && frm.doc.datasource != '') {
+        frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.fetch_tables', args:{
+            'name':frm.doc.datasource
+        },
+        callback:function(r){
+            console.log(r.message)
+            frm.set_df_property('datasource_table', 'options', r.message);
+        }
+    });
+        
+}
+
+
+   }
 
    
  });
