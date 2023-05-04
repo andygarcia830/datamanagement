@@ -31,7 +31,7 @@
    "fieldname": "table_type",
    "fieldtype": "Select",
    "label": "Table Type",
-   "options": "MASTER - FULLSCAN\nMASTER - FULLSCAN WITH LAST UPDATE\nTRANSACTIONAL - BACKFILL\nTRANSACTIONAL - DAILY"
+   "options": "MASTER\nMASTER_WITH_LAST_UPDATED_FIELD\nTRANSACTIONAL"
   },
   {
    "fieldname": "last_processed_id",
@@ -43,7 +43,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-05-03 16:51:34.351745",
+ "modified": "2023-05-04 16:06:02.462419",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DatabaseTable",
