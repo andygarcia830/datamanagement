@@ -4,3 +4,5 @@ langchain
 gpt_index
 faiss-cpu
 mysql-connector
+mysqlclient
+

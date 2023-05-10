@@ -34,10 +34,22 @@ def fetch_details(datasource):
 	result.append({'portNo':maindoc.port})
 	result.append({'dbName':maindoc.database_name})
 	result.append({'schemaName':maindoc.schema_name})
+
 	result.append({'tables':tables})
 	result.append({'usr':maindoc.db_username})
 	result.append({'pwd':maindoc.db_password})
 	result.append({'processDate':maindoc.process_date})
+
+
+	result.append({'connectionType':maindoc.connection_type})
+	result.append({'sshHost':maindoc.ssh_tunnel_host})
+	result.append({'sshPort':maindoc.ssh_tunnel_port})
+	result.append({'sshLogin':maindoc.ssh_tunnel_login})
+	result.append({'sshPassword':maindoc.ssh_tunnel_password})	
+	result.append({'sshPEMPath':maindoc.ssh_tunnel_pem_path})	
+	result.append({'localPort':maindoc.local_port})	
+	result.append({'remotePort':maindoc.remote_destination_port})	
+
 	result.append({'bucketName':maindoc.bucket_name})
 
 	return result
