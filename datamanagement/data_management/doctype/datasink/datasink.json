@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name1",
+ "creation": "2023-05-10 22:09:13.908304",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "method",
+  "target_storage_type",
+  "bucket_name",
+  "column_break_pv83",
+  "section_break_kgvf",
+  "database_section",
+  "connection_type",
+  "host",
+  "port",
+  "database_name",
+  "schema_name",
+  "db_username",
+  "db_password",
+  "sql_type",
+  "column_break_38sa",
+  "ssh_tunnel_host",
+  "ssh_tunnel_port",
+  "ssh_tunnel_login",
+  "ssh_tunnel_password",
+  "ssh_tunnel_pem_path",
+  "local_port",
+  "remote_destination_port",
+  "section_break_yysw",
+  "table"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "label": "Method",
+   "options": "direct_access\ndb_dump\ncsv"
+  },
+  {
+   "default": "AWS S3",
+   "fieldname": "target_storage_type",
+   "fieldtype": "Select",
+   "label": "Target Storage Type",
+   "options": "AWS S3"
+  },
+  {
+   "fieldname": "bucket_name",
+   "fieldtype": "Data",
+   "label": "Bucket Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pv83",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_kgvf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "database_section",
+   "fieldtype": "Column Break",
+   "label": "Database"
+  },
+  {
+   "default": "DIRECT_DB",
+   "fieldname": "connection_type",
+   "fieldtype": "Select",
+   "label": "Connection Type",
+   "options": "DIRECT_DB\nSSH_TUNNEL_PASSWORD\nSSH_TUNNEL_PEM\nSSH_TUNNEL_PASSWORDLESS"
+  },
+  {
+   "fieldname": "host",
+   "fieldtype": "Data",
+   "label": "Host",
+   "reqd": 1
+  },
+  {
+   "default": "5432",
+   "fieldname": "port",
+   "fieldtype": "Int",
+   "label": "Port",
+   "reqd": 1
+  },
+  {
+   "fieldname": "database_name",
+   "fieldtype": "Data",
+   "label": "Database Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "schema_name",
+   "fieldtype": "Data",
+   "label": "Schema Name"
+  },
+  {
+   "fieldname": "db_username",
+   "fieldtype": "Data",
+   "label": "DB Username"
+  },
+  {
+   "fieldname": "db_password",
+   "fieldtype": "Data",
+   "label": "DB Password"
+  },
+  {
+   "fieldname": "sql_type",
+   "fieldtype": "Select",
+   "label": "SQL Type",
+   "options": "postgresql\nmysql"
+  },
+  {
+   "fieldname": "column_break_38sa",
+   "fieldtype": "Column Break",
+   "label": "SSH Tunnel"
+  },
+  {
+   "fieldname": "ssh_tunnel_host",
+   "fieldtype": "Data",
+   "label": "SSH Tunnel Host"
+  },
+  {
+   "default": "22",
+   "fieldname": "ssh_tunnel_port",
+   "fieldtype": "Int",
+   "label": "SSH Tunnel Port"
+  },
+  {
+   "fieldname": "ssh_tunnel_login",
+   "fieldtype": "Data",
+   "label": "SSH Tunnel Login"
+  },
+  {
+   "fieldname": "ssh_tunnel_password",
+   "fieldtype": "Data",
+   "label": "SSH Tunnel Password"
+  },
+  {
+   "fieldname": "ssh_tunnel_pem_path",
+   "fieldtype": "Data",
+   "label": "SSH Tunnel PEM Path"
+  },
+  {
+   "fieldname": "local_port",
+   "fieldtype": "Int",
+   "label": "Local Port"
+  },
+  {
+   "fieldname": "remote_destination_port",
+   "fieldtype": "Int",
+   "label": "Remote Destination Port"
+  },
+  {
+   "fieldname": "section_break_yysw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table",
+   "fieldtype": "Data",
+   "label": "Table"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-10 22:09:13.908304",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "DataSink",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
