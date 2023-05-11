@@ -186,7 +186,7 @@ def get_subfolder_names(name):
 def fetch_access(metadata):
 	maindoc = frappe.get_doc('MetaData',metadata)
 	result = {}
-	result['data_owner'] = maindoc.owner
+	result['data_owner'] = maindoc.metadata_owner
 	result['data_stewards'] = maindoc.steward
 	return result 
 

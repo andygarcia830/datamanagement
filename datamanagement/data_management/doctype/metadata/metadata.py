@@ -47,7 +47,7 @@ def create_json(name):
 	jsonList = []
 	jsonList.append({'name':maindoc.name1})
 	jsonList.append({'description':maindoc.description})
-	jsonList.append({'owner':maindoc.owner})
+	jsonList.append({'metadata_owner':maindoc.metadata_owner})
 	jsonList.append({'steward':stewardList})
 	jsonList.append({'source':sourceList})	
 	jsonList.append({'fields':fieldList})	

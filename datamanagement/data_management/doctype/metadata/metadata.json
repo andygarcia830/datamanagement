@@ -12,7 +12,7 @@
   "description",
   "type",
   "category",
-  "owner",
+  "metadata_owner",
   "steward",
   "source",
   "fields",
@@ -27,14 +27,6 @@
   "json"
  ],
  "fields": [
-  {
-   "fieldname": "owner",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Owner",
-   "options": "User",
-   "reqd": 1
-  },
   {
    "fieldname": "steward",
    "fieldtype": "Table",
@@ -138,12 +130,20 @@
    "fieldtype": "Link",
    "label": "Target Data Folder",
    "options": "Data Folder"
+  },
+  {
+   "fieldname": "metadata_owner",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Owner",
+   "options": "User",
+   "reqd": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-20 21:16:39.581601",
+ "modified": "2023-05-11 10:14:04.239140",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "MetaData",
