@@ -99,7 +99,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Data",
-   "link_count": 4,
+   "link_count": 5,
    "onboard": 0,
    "type": "Card Break"
   },
@@ -136,6 +136,16 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Data Sink",
+   "link_count": 0,
+   "link_to": "DataSink",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "GPT Context",
    "link_count": 0,
    "link_to": "GPT Context",
@@ -144,7 +154,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-04-24 12:02:07.693286",
+ "modified": "2023-05-11 10:02:53.223494",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Management",
