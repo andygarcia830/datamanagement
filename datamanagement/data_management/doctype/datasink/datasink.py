@@ -19,31 +19,32 @@ def fetch_details(datasink):
 	if maindoc == None:
 		frappe.throw(f'Requested datasink {datasink} not found')
 	
-	result=[]
-	result.append({'method':maindoc.method})
-	result.append({'sqlType':maindoc.sql_type})
-	result.append({'clientName':frappe.get_doc('Client Configuration').client_namespace})
-	result.append({'hostName':maindoc.host})
-	result.append({'portNo':maindoc.port})
-	result.append({'dbName':maindoc.database_name})
-	result.append({'schemaName':maindoc.schema_name})
+	result={}
+	result['method']=maindoc.method
+	result['sqlType']=maindoc.sql_type
+	result['clientName']=frappe.get_doc('Client Configuration').client_namespace
+	result['hostName']=maindoc.host
+	result['portNo']=maindoc.port
+	result['dbName']=maindoc.database_name
+	result['schemaName']=maindoc.schema_name
 
-	result.append({'table':maindoc.table})
-	result.append({'usr':maindoc.db_username})
-	result.append({'pwd':maindoc.db_password})
-	#result.append({'processDate':maindoc.process_date})
+	result['table']=maindoc.table
+	result['usr']=maindoc.db_username
+	result['pwd']=maindoc.db_password
+	#result['processDate']=maindoc.process_date
 
 
-	result.append({'connectionType':maindoc.connection_type})
-	result.append({'sshHost':maindoc.ssh_tunnel_host})
-	result.append({'sshPort':maindoc.ssh_tunnel_port})
-	result.append({'sshLogin':maindoc.ssh_tunnel_login})
-	result.append({'sshPassword':maindoc.ssh_tunnel_password})	
-	result.append({'sshPEMPath':maindoc.ssh_tunnel_pem_path})	
-	result.append({'localPort':maindoc.local_port})	
-	result.append({'remotePort':maindoc.remote_destination_port})	
+	result['connectionType']=maindoc.connection_type
+	result['sshHost']=maindoc.ssh_tunnel_host
+	result['sshPort']=maindoc.ssh_tunnel_port
+	result['sshLogin']=maindoc.ssh_tunnel_login
+	result['sshPassword']=maindoc.ssh_tunnel_password	
+	result['sshPEMPath']=maindoc.ssh_tunnel_pem_path	
+	result['localPort']=maindoc.local_port	
+	result['remoteHost']=maindoc.remote_destination_host	
+	result['remotePort']=maindoc.remote_destination_port	
 
-	result.append({'bucketName':maindoc.bucket_name})
+	result['bucketName']=maindoc.bucket_name
 
 	return result
 

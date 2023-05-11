@@ -30,6 +30,7 @@
   "ssh_tunnel_password",
   "ssh_tunnel_pem_path",
   "local_port",
+  "remote_destination_host",
   "remote_destination_port",
   "section_break_yysw",
   "table"
@@ -171,11 +172,16 @@
    "fieldname": "table",
    "fieldtype": "Data",
    "label": "Table"
+  },
+  {
+   "fieldname": "remote_destination_host",
+   "fieldtype": "Data",
+   "label": "Remote Destination Host"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-10 22:09:13.908304",
+ "modified": "2023-05-11 13:45:27.061094",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DataSink",

@@ -30,6 +30,7 @@
   "ssh_tunnel_password",
   "ssh_tunnel_pem_path",
   "local_port",
+  "remote_destination_host",
   "remote_destination_port",
   "section_break_yysw",
   "tables"
@@ -172,11 +173,16 @@
    "fieldname": "remote_destination_port",
    "fieldtype": "Int",
    "label": "Remote Destination Port"
+  },
+  {
+   "fieldname": "remote_destination_host",
+   "fieldtype": "Data",
+   "label": "Remote Destination Host"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-10 15:32:57.348298",
+ "modified": "2023-05-11 13:45:54.533712",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "DataSource",

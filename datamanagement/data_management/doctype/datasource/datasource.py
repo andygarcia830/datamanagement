@@ -20,37 +20,38 @@ def fetch_details(datasource):
 		tableEntry={}
 		tableEntry['table_name']=item.table_name
 		partitions = json.loads(item.partitions)
-		tableEntry['paritions']=partitions
+		tableEntry['partitions']=partitions
 		tableEntry['table_type']=item.table_type
 		tableEntry['last_processed_id']=item.last_processed_id
 		
 		tables.append(tableEntry)
 	print(f'TABLES={tables}')
-	result=[]
-	result.append({'method':maindoc.method})
-	result.append({'sqlType':maindoc.sql_type})
-	result.append({'clientName':frappe.get_doc('Client Configuration').client_namespace})
-	result.append({'hostName':maindoc.host})
-	result.append({'portNo':maindoc.port})
-	result.append({'dbName':maindoc.database_name})
-	result.append({'schemaName':maindoc.schema_name})
+	result={}
+	result['method']=maindoc.method
+	result['sqlType']=maindoc.sql_type
+	result['clientName']=frappe.get_doc('Client Configuration').client_namespace
+	result['hostName']=maindoc.host
+	result['portNo']=maindoc.port
+	result['dbName']=maindoc.database_name
+	result['schemaName']=maindoc.schema_name
 
-	result.append({'tables':tables})
-	result.append({'usr':maindoc.db_username})
-	result.append({'pwd':maindoc.db_password})
+	result['tables']=tables
+	result['usr']=maindoc.db_username
+	result['pwd']=maindoc.db_password
 	#result.append({'processDate':maindoc.process_date})
 
 
-	result.append({'connectionType':maindoc.connection_type})
-	result.append({'sshHost':maindoc.ssh_tunnel_host})
-	result.append({'sshPort':maindoc.ssh_tunnel_port})
-	result.append({'sshLogin':maindoc.ssh_tunnel_login})
-	result.append({'sshPassword':maindoc.ssh_tunnel_password})	
-	result.append({'sshPEMPath':maindoc.ssh_tunnel_pem_path})	
-	result.append({'localPort':maindoc.local_port})	
-	result.append({'remotePort':maindoc.remote_destination_port})	
+	result['connectionType']=maindoc.connection_type
+	result['sshHost']=maindoc.ssh_tunnel_host
+	result['sshPort']=maindoc.ssh_tunnel_port
+	result['sshLogin']=maindoc.ssh_tunnel_login
+	result['sshPassword']=maindoc.ssh_tunnel_password	
+	result['sshPEMPath']=maindoc.ssh_tunnel_pem_path	
+	result['localPort']=maindoc.local_port	
+	result['remoteHost']=maindoc.remote_destination_host	
+	result['remotePort']=maindoc.remote_destination_port	
 
-	result.append({'bucketName':maindoc.bucket_name})
+	result['bucketName']=maindoc.bucket_name
 
 	return result
 

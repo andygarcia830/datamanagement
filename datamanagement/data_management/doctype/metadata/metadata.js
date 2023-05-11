@@ -103,7 +103,8 @@
         if (frm.doc.fields != null && frm.doc.fields != ''){
 
             frappe.call({method:'datamanagement.data_management.doctype.metadata.metadata.validate_sources', args:{
-                    'doc':frm.doc.fields
+                    'doc':frm.doc.name1,
+                    'fields':frm.doc.fields
                 },
                 callback:function(r){
                     console.log(r.message)
