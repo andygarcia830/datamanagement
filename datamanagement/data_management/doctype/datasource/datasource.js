@@ -46,6 +46,14 @@ frappe.ui.form.on("DataSource", {
                 frm.set_df_property('local_port','hidden',true)
                 frm.set_df_property('remote_destination_port','hidden',true)
     
+                frm.set_df_property('ssh_tunnel_host','reqd',false)
+                frm.set_df_property('ssh_tunnel_port','reqd',false)
+                frm.set_df_property('ssh_tunnel_login','reqd',false)
+                frm.set_df_property('ssh_tunnel_password','reqd',false)
+                frm.set_df_property('ssh_tunnel_pem_path','reqd',false)
+                frm.set_df_property('local_port','reqd',false)
+                frm.set_df_property('remote_destination_port','reqd',false)
+    
             }
     
             else if (frm.doc.connection_type == 'SSH_TUNNEL_PASSWORD'){
@@ -56,6 +64,15 @@ frappe.ui.form.on("DataSource", {
                 frm.set_df_property('ssh_tunnel_pem_path','hidden',true)
                 frm.set_df_property('local_port','hidden',false)
                 frm.set_df_property('remote_destination_port','hidden',false)
+    
+    
+                frm.set_df_property('ssh_tunnel_host','reqd',true)
+                frm.set_df_property('ssh_tunnel_port','reqd',true)
+                frm.set_df_property('ssh_tunnel_login','reqd',true)
+                frm.set_df_property('ssh_tunnel_password','reqd',true)
+                frm.set_df_property('ssh_tunnel_pem_path','reqd',false)
+                frm.set_df_property('local_port','reqd',true)
+                frm.set_df_property('remote_destination_port','reqd',true)
     
             }
             
@@ -68,6 +85,15 @@ frappe.ui.form.on("DataSource", {
                 frm.set_df_property('local_port','hidden',false)
                 frm.set_df_property('remote_destination_port','hidden',false)
     
+                frm.set_df_property('ssh_tunnel_host','reqd',true)
+                frm.set_df_property('ssh_tunnel_port','reqd',true)
+                frm.set_df_property('ssh_tunnel_login','reqd',true)
+                frm.set_df_property('ssh_tunnel_password','reqd',false)
+                frm.set_df_property('ssh_tunnel_pem_path','reqd',true)
+                frm.set_df_property('local_port','reqd',true)
+                frm.set_df_property('remote_destination_port','reqd',true)
+    
+    
             }
     
             else if (frm.doc.connection_type == 'SSH_TUNNEL_PASSWORDLESS'){
@@ -78,7 +104,16 @@ frappe.ui.form.on("DataSource", {
                 frm.set_df_property('ssh_tunnel_pem_path','hidden',true)
                 frm.set_df_property('local_port','hidden',false)
                 frm.set_df_property('remote_destination_port','hidden',false)
+    
+                frm.set_df_property('ssh_tunnel_host','reqd',true)
+                frm.set_df_property('ssh_tunnel_port','reqd',true)
+                frm.set_df_property('ssh_tunnel_login','reqd',true)
+                frm.set_df_property('ssh_tunnel_password','reqd',false)
+                frm.set_df_property('ssh_tunnel_pem_path','reqd',false)
+                frm.set_df_property('local_port','reqd',true)
+                frm.set_df_property('remote_destination_port','reqd',true)
             }
+    
 	},
 
     connection_type(frm){
@@ -91,6 +126,14 @@ frappe.ui.form.on("DataSource", {
             frm.set_df_property('local_port','hidden',true)
             frm.set_df_property('remote_destination_port','hidden',true)
 
+            frm.set_df_property('ssh_tunnel_host','reqd',false)
+            frm.set_df_property('ssh_tunnel_port','reqd',false)
+            frm.set_df_property('ssh_tunnel_login','reqd',false)
+            frm.set_df_property('ssh_tunnel_password','reqd',false)
+            frm.set_df_property('ssh_tunnel_pem_path','reqd',false)
+            frm.set_df_property('local_port','reqd',false)
+            frm.set_df_property('remote_destination_port','reqd',false)
+
         }
 
         else if (frm.doc.connection_type == 'SSH_TUNNEL_PASSWORD'){
@@ -101,6 +144,15 @@ frappe.ui.form.on("DataSource", {
             frm.set_df_property('ssh_tunnel_pem_path','hidden',true)
             frm.set_df_property('local_port','hidden',false)
             frm.set_df_property('remote_destination_port','hidden',false)
+
+
+            frm.set_df_property('ssh_tunnel_host','reqd',true)
+            frm.set_df_property('ssh_tunnel_port','reqd',true)
+            frm.set_df_property('ssh_tunnel_login','reqd',true)
+            frm.set_df_property('ssh_tunnel_password','reqd',true)
+            frm.set_df_property('ssh_tunnel_pem_path','reqd',false)
+            frm.set_df_property('local_port','reqd',true)
+            frm.set_df_property('remote_destination_port','reqd',true)
 
         }
         
@@ -113,6 +165,15 @@ frappe.ui.form.on("DataSource", {
             frm.set_df_property('local_port','hidden',false)
             frm.set_df_property('remote_destination_port','hidden',false)
 
+            frm.set_df_property('ssh_tunnel_host','reqd',true)
+            frm.set_df_property('ssh_tunnel_port','reqd',true)
+            frm.set_df_property('ssh_tunnel_login','reqd',true)
+            frm.set_df_property('ssh_tunnel_password','reqd',false)
+            frm.set_df_property('ssh_tunnel_pem_path','reqd',true)
+            frm.set_df_property('local_port','reqd',true)
+            frm.set_df_property('remote_destination_port','reqd',true)
+
+
         }
 
         else if (frm.doc.connection_type == 'SSH_TUNNEL_PASSWORDLESS'){
@@ -123,6 +184,16 @@ frappe.ui.form.on("DataSource", {
             frm.set_df_property('ssh_tunnel_pem_path','hidden',true)
             frm.set_df_property('local_port','hidden',false)
             frm.set_df_property('remote_destination_port','hidden',false)
+
+            frm.set_df_property('ssh_tunnel_host','reqd',true)
+            frm.set_df_property('ssh_tunnel_port','reqd',true)
+            frm.set_df_property('ssh_tunnel_login','reqd',true)
+            frm.set_df_property('ssh_tunnel_password','reqd',false)
+            frm.set_df_property('ssh_tunnel_pem_path','reqd',false)
+            frm.set_df_property('local_port','reqd',true)
+            frm.set_df_property('remote_destination_port','reqd',true)
+        }
+
         }
     },
-});
+);
