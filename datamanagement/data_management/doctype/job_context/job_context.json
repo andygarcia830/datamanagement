@@ -63,7 +63,7 @@
   },
   {
    "fieldname": "folder",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "Folder",
    "reqd": 1
   },
@@ -129,7 +129,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-17 14:24:52.192602",
+ "modified": "2023-05-17 15:27:57.150038",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Job Context",
