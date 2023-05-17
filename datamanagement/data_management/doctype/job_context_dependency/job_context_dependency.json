@@ -39,6 +39,7 @@
   {
    "fieldname": "search_tolerance",
    "fieldtype": "Int",
+   "in_list_view": 1,
    "label": "Search Tolerance",
    "reqd": 1
   },
@@ -54,7 +55,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-05-17 15:56:43.528644",
+ "modified": "2023-05-17 16:00:13.378867",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Job Context Dependency",
