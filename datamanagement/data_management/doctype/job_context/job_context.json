@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{client_namespace}_{database_name}_{table_name}",
+ "autoname": "format:{client_namespace}/{database_name}/{table_name}",
  "creation": "2023-05-17 14:13:54.043408",
  "default_view": "List",
  "doctype": "DocType",
@@ -123,7 +123,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-17 16:10:36.652666",
+ "modified": "2023-05-17 16:16:20.061471",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Job Context",
