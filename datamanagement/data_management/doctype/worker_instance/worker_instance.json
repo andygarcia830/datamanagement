@@ -1,13 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:host",
+ "autoname": "field:name1",
  "creation": "2023-05-17 12:39:14.432885",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "name1",
   "host",
   "login",
   "other_parameters",
@@ -41,11 +42,18 @@
    "label": "Logs",
    "options": "Worker Instance Log",
    "read_only": 1
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-17 12:53:07.033618",
+ "modified": "2023-05-17 15:12:35.691812",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Worker Instance",
