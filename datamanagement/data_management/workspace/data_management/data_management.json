@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"cBa53vfDF6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Data Management</span>\",\"col\":12}},{\"id\":\"7QUbP0Aabi\",\"type\":\"card\",\"data\":{\"card_name\":\"MetaData\",\"col\":4}},{\"id\":\"9UX9R-b10K\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"GrjC-f4wrd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xMYl_aqPOx\",\"type\":\"card\",\"data\":{\"card_name\":\"AWS\",\"col\":4}},{\"id\":\"WrysymXSqY\",\"type\":\"card\",\"data\":{\"card_name\":\"Developers\",\"col\":4}},{\"id\":\"3TWg-_NCVj\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Knc9q9h6GH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Client Configuration\",\"col\":3}},{\"id\":\"0ChL71QH57\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ChatGPT\",\"col\":3}}]",
+ "content": "[{\"id\":\"cBa53vfDF6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Data Management</span>\",\"col\":12}},{\"id\":\"7QUbP0Aabi\",\"type\":\"card\",\"data\":{\"card_name\":\"MetaData\",\"col\":4}},{\"id\":\"9UX9R-b10K\",\"type\":\"card\",\"data\":{\"card_name\":\"Data\",\"col\":4}},{\"id\":\"GrjC-f4wrd\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xMYl_aqPOx\",\"type\":\"card\",\"data\":{\"card_name\":\"AWS\",\"col\":4}},{\"id\":\"WrysymXSqY\",\"type\":\"card\",\"data\":{\"card_name\":\"Developers\",\"col\":4}},{\"id\":\"XR6DO0rpVI\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"q05_emSE4x\",\"type\":\"card\",\"data\":{\"card_name\":\"Job Management\",\"col\":4}},{\"id\":\"eLON3ZcYU6\",\"type\":\"card\",\"data\":{\"card_name\":\"Load Balancing\",\"col\":4}},{\"id\":\"3TWg-_NCVj\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Knc9q9h6GH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Client Configuration\",\"col\":3}},{\"id\":\"0ChL71QH57\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ChatGPT\",\"col\":3}}]",
  "creation": "2023-04-04 11:29:56.103883",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -152,9 +152,55 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Load Balancing",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Worker Instance",
+   "link_count": 0,
+   "link_to": "Worker Instance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Worker Instance Dispatcher",
+   "link_count": 0,
+   "link_to": "Worker Instance Dispatcher",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Job Management",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Job Context",
+   "link_count": 0,
+   "link_to": "Job Context",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2023-05-11 10:02:53.223494",
+ "modified": "2023-05-17 14:31:56.919289",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Data Management",

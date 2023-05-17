@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-17 14:16:34.858958",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "target_table",
+  "read_start_date",
+  "read_end_date",
+  "read_mode",
+  "search_tolerance"
+ ],
+ "fields": [
+  {
+   "fieldname": "target_table",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Target Table",
+   "reqd": 1
+  },
+  {
+   "fieldname": "read_start_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Read Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "read_end_date",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Read End Date",
+   "reqd": 1
+  },
+  {
+   "default": "SEARCH",
+   "fieldname": "read_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Read Mode",
+   "options": "SEARCH\nSTRICT\nLAX",
+   "reqd": 1
+  },
+  {
+   "fieldname": "search_tolerance",
+   "fieldtype": "Int",
+   "label": "Search Tolerance",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-05-17 14:16:34.858958",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "Job Context Dependency",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

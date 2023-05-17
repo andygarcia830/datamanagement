@@ -9,7 +9,8 @@
  "field_order": [
   "client_name",
   "client_namespace",
-  "storage_type"
+  "storage_type",
+  "global_parameters"
  ],
  "fields": [
   {
@@ -28,12 +29,18 @@
    "fieldtype": "Select",
    "label": "Storage Type",
    "options": "AWS S3"
+  },
+  {
+   "fieldname": "global_parameters",
+   "fieldtype": "Table",
+   "label": "Global Parameters",
+   "options": "Client Global Parameters"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-18 19:27:59.422687",
+ "modified": "2023-05-17 12:47:43.780502",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Client Configuration",

@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-05-17 14:13:54.043408",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "client_namespace",
+  "storage_type",
+  "database_name",
+  "table_name",
+  "table_type",
+  "resource",
+  "folder",
+  "write_mode",
+  "redistribution",
+  "partition_name",
+  "partition_date_format",
+  "format",
+  "number_of_partitions",
+  "dependencies",
+  "source"
+ ],
+ "fields": [
+  {
+   "fieldname": "client_namespace",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Client Namespace",
+   "read_only": 1
+  },
+  {
+   "fieldname": "storage_type",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Storage Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "database_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Database Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "table_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Table Name",
+   "reqd": 1
+  },
+  {
+   "default": "MASTER",
+   "fieldname": "table_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Table Type",
+   "options": "TRANSACTIONAL\nMASTER",
+   "reqd": 1
+  },
+  {
+   "fieldname": "folder",
+   "fieldtype": "Select",
+   "label": "Folder",
+   "reqd": 1
+  },
+  {
+   "default": "OVERWRITE",
+   "fieldname": "write_mode",
+   "fieldtype": "Select",
+   "label": "Write Mode",
+   "options": "OVERWRITE\nAPPEND",
+   "reqd": 1
+  },
+  {
+   "default": "COALESCE",
+   "fieldname": "redistribution",
+   "fieldtype": "Select",
+   "label": "Redistribution",
+   "options": "COALESCE\nREPARTITION",
+   "reqd": 1
+  },
+  {
+   "fieldname": "partition_name",
+   "fieldtype": "Data",
+   "label": "Partition Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "partition_date_format",
+   "fieldtype": "Data",
+   "label": "Partition Date Format",
+   "reqd": 1
+  },
+  {
+   "fieldname": "format",
+   "fieldtype": "Data",
+   "label": "Format",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_partitions",
+   "fieldtype": "Int",
+   "label": "Number of Partitions",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dependencies",
+   "fieldtype": "Table",
+   "label": "Dependencies",
+   "options": "Job Context Dependency"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Table",
+   "label": "Source",
+   "options": "Job Context Reference"
+  },
+  {
+   "fieldname": "resource",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Resource",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-17 14:24:52.192602",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "Job Context",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -56,13 +56,13 @@ def api_key():
 
     
     key=os.environ["OPENAI_API_KEY"]
-    print(f'OPENAI KEY={key}')
+    #print(f'OPENAI KEY={key}')
 
 
 @frappe.whitelist()
 def send(msg,jsonStr):
-	print(f'MSG {msg}')
-	print(f'JSON {jsonStr}')
+	#print(f'MSG {msg}')
+	#print(f'JSON {jsonStr}')
 	jsonDict=json.loads(jsonStr)
 	jsonDict.append({"input":msg})
 	jsonDict.append({"output":chat_gptbot(msg)})
@@ -136,7 +136,7 @@ def ask_question(msg,jsonStr,context):
         #return answer_with_embeddings(msg,jsonStr)
         datasource = frappe.get_doc('DataSource',contextdoc.data_source)
         connectstring=f'{datasource.sql_type}://{datasource.db_username}:{datasource.db_password}@{datasource.host}:{datasource.port}/{datasource.database_name}'
-        print(f'CONNECTING WITH {connectstring}')
+        #print(f'CONNECTING WITH {connectstring}')
         return answer_with_sql_agent(msg,jsonStr,connectstring)
 
         # csv_file='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_training/candidates/candidates-2023-04-14.csv'
@@ -195,7 +195,7 @@ def answer_with_sql_agent(msg,jsonStr,connectstring):
     if jsonStr == None:
          jsonStr=''
 
-    print(f'CHAT HISTORY={jsonStr}')
+    #print(f'CHAT HISTORY={jsonStr}')
 
     result = agent_executor.run({'input':msg,'chat_history':jsonStr})
     #print(f'RESULT={result}')

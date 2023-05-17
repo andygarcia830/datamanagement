@@ -48,10 +48,11 @@
    "reqd": 1
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-04-23 00:55:46.881625",
+ "modified": "2023-05-14 22:26:42.303547",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Chat GPT",

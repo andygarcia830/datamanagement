@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:host",
+ "creation": "2023-05-17 12:39:14.432885",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "host",
+  "login",
+  "other_parameters",
+  "logs"
+ ],
+ "fields": [
+  {
+   "fieldname": "host",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Host",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "login",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Login",
+   "reqd": 1
+  },
+  {
+   "fieldname": "other_parameters",
+   "fieldtype": "Table",
+   "label": "Other Parameters",
+   "options": "Worker Instance Parameters"
+  },
+  {
+   "fieldname": "logs",
+   "fieldtype": "Table",
+   "label": "Logs",
+   "options": "Worker Instance Log",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-05-17 12:53:07.033618",
+ "modified_by": "Administrator",
+ "module": "Data Management",
+ "name": "Worker Instance",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
