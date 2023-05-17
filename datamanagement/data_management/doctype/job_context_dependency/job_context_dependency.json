@@ -6,7 +6,6 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "target_table",
   "source_job_context",
   "read_start_date",
   "read_end_date",
@@ -14,13 +13,6 @@
   "search_tolerance"
  ],
  "fields": [
-  {
-   "fieldname": "target_table",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Target Table",
-   "reqd": 1
-  },
   {
    "fieldname": "read_start_date",
    "fieldtype": "Data",
@@ -53,14 +45,16 @@
   {
    "fieldname": "source_job_context",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Source Job Context",
-   "options": "Job Context"
+   "options": "Job Context",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-05-17 15:49:41.406934",
+ "modified": "2023-05-17 15:56:43.528644",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Job Context Dependency",
