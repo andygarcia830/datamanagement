@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+import datamanagement.data_management.doctype.data_folder.data_folder
 from frappe.model.document import Document
 
 class JobContext(Document):
@@ -16,3 +17,10 @@ def fetch_client_data():
 	result['storage_type']= maindoc.storage_type
 	result['client_namespace']= maindoc.client_namespace
 	return result
+
+
+@frappe.whitelist()
+def fetch_job_context(id):
+	maindoc = frappe.get_doc('Job Context',id)
+	print(f'JOB CONTEXT={maindoc}')
+	return maindoc

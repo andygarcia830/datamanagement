@@ -27,3 +27,9 @@ def create_bucket(storage_type,name):
 		)
 		print(f'RESPONSE = {response}')
 
+
+
+@frappe.whitelist()
+def fetch_global_config():
+	maindoc = frappe.get_doc('Client Configuration')
+	return maindoc

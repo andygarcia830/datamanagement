@@ -15,6 +15,7 @@
  ],
  "fields": [
   {
+   "columns": 1,
    "fieldname": "job_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -22,39 +23,51 @@
    "reqd": 1
   },
   {
+   "columns": 1,
    "fieldname": "cpu_usage",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "CPU Usage",
    "reqd": 1
   },
   {
+   "columns": 1,
    "fieldname": "memory_usage",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Memory Usage",
    "reqd": 1
   },
   {
+   "columns": 5,
    "fieldname": "message",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Message"
   },
   {
+   "columns": 1,
    "fieldname": "start",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_preview": 1,
    "label": "Start",
    "reqd": 1
   },
   {
+   "columns": 1,
    "fieldname": "end",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
    "label": "End",
+   "read_only": 1,
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-05-17 12:51:35.702728",
+ "modified": "2023-05-18 17:10:28.093128",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Worker Instance Log",
