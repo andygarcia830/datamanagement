@@ -10,6 +10,12 @@ class WorkerInstanceDispatcher(Document):
 
 @frappe.whitelist()
 def fetch_worker(dag_id):
-	maindoc = frappe.get_doc('Worker Instance',dag_id)
-	print(f'JOB CONTEXT={maindoc}')
-	return maindoc
+	maindoc = frappe.get_doc('Worker Instance Dispatcher',dag_id)
+	child = frappe.get_doc('Worker Instance',maindoc.worker_instance)
+	result={}
+	result['name']=child.name1
+	result['host']=child.host
+	result['login']=child.login
+	result['other_parameters']=child.other_parameters
+	
+	return result
