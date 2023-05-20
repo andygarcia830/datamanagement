@@ -23,4 +23,8 @@ def fetch_client_data():
 def fetch_job_context(id):
 	maindoc = frappe.get_doc('Job Context',id)
 	print(f'JOB CONTEXT={maindoc}')
+	for item in maindoc.dependencies:
+		source=frappe.get_doc('Job Context',item.source_job_context)
+		item.source_job_context = source
+
 	return maindoc
