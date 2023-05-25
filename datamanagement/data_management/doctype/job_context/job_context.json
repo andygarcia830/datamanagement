@@ -21,7 +21,8 @@
   "partition_date_format",
   "format",
   "number_of_partitions",
-  "dependencies"
+  "dependencies",
+  "optional_parameters"
  ],
  "fields": [
   {
@@ -119,11 +120,17 @@
    "in_list_view": 1,
    "label": "Resource",
    "reqd": 1
+  },
+  {
+   "fieldname": "optional_parameters",
+   "fieldtype": "Table",
+   "label": "Optional Parameters",
+   "options": "Job Context Parameters"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-05-17 16:16:20.061471",
+ "modified": "2023-05-25 09:49:36.413913",
  "modified_by": "Administrator",
  "module": "Data Management",
  "name": "Job Context",

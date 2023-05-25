@@ -21,10 +21,13 @@ def fetch_client_data():
 
 @frappe.whitelist()
 def fetch_job_context(id):
+	globaldoc = frappe.get_doc('Client Configuration')
 	maindoc = frappe.get_doc('Job Context',id)
 	print(f'JOB CONTEXT={maindoc}')
 	for item in maindoc.dependencies:
 		source=frappe.get_doc('Job Context',item.source_job_context)
 		item.source_job_context = source
+	maindoc.storage_type = globaldoc.storage_type
+	maindoc.client_namespace = globaldoc.client_namespace
 
 	return maindoc
