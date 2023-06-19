@@ -1,7 +1,7 @@
 # Copyright (c) 2023, Andy Garcia and contributors
 # For license information, please see license.txt
 
-import frappe,json
+import frappe,json,subprocess
 from frappe.model.document import Document
 from frappe.utils import get_site_name
 
@@ -36,7 +36,7 @@ from typing import List, Union
 
 import os,pickle
 
-from gpt_index import SimpleDirectoryReader, GPTListIndex, GPTSimpleVectorIndex, LLMPredictor, PromptHelper, ServiceContext
+#from gpt_index import SimpleDirectoryReader, GPTListIndex, GPTSimpleVectorIndex, LLMPredictor, PromptHelper, ServiceContext
 
 
 
@@ -128,6 +128,9 @@ def get_chain(vectorstore,prompt):
 
 
 
+def open_tunnel_pem(ds):
+     subprocess.Popen(['../apps/datamanagement/datamanagement/data_management/scripts/tunnel.sh',ds.ssh_tunnel_host,f'{ds.ssh_tunnel_port}',ds.ssh_tunnel_login,f'{ds.local_port}',ds.remote_destination_host,f'{ds.remote_destination_port}',ds.ssh_tunnel_pem_path])
+
 @frappe.whitelist()
 def ask_question(msg,jsonStr,context):
     api_key()
@@ -135,8 +138,14 @@ def ask_question(msg,jsonStr,context):
     if (contextdoc != None):
         #return answer_with_embeddings(msg,jsonStr)
         datasource = frappe.get_doc('DataSource',contextdoc.data_source)
-        connectstring=f'{datasource.sql_type}://{datasource.db_username}:{datasource.db_password}@{datasource.host}:{datasource.port}/{datasource.database_name}'
-        #print(f'CONNECTING WITH {connectstring}')
+        if datasource.connection_type=='SSH_TUNNEL_PEM':
+            open_tunnel_pem(datasource)     
+        user=datasource.db_username.replace('&','&amp')
+        password=datasource.db_password.replace('&','&amp')
+        user=datasource.db_username.replace('@','%40')
+        password=datasource.db_password.replace('@','%40')
+        connectstring=f'{datasource.sql_type}://{user}:{password}@{datasource.host}:{datasource.port}/{datasource.database_name}'
+        print(f'CONNECTING WITH {connectstring}')
         return answer_with_sql_agent(msg,jsonStr,connectstring)
 
         # csv_file='./'+get_site_name(frappe.local.request.host)+'/private/files/gpt_training/candidates/candidates-2023-04-14.csv'
